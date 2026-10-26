@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8549617214234048847}
   - component: {fileID: 5159888137804984473}
+  - component: {fileID: 1739055016608831515}
   m_Layer: 0
   m_Name: TEST_UnitEntity
   m_TagString: Untagged
@@ -46,6 +47,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
   healthConfiguration: {fileID: 11400000, guid: f872fd214ad970548a97413fdf81b3b7, type: 2}
+--- !u!114 &1739055016608831515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659425209203158568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1feeb946c711e43bd596aae6128518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GridMovement
+  GridSettings: {fileID: 11400000, guid: 57c189f388d915141b953076360cbde6, type: 2}
+  MoveSpeed: 5
 --- !u!1 &774624509195743925
 GameObject:
   m_ObjectHideFlags: 0
