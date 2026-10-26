@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Turn Notifier", menuName = "ScriptableObjects/Turn Notifier")]
+[CreateAssetMenu(fileName = "Turn Notifier", menuName = "ScriptableObjects/Notifier/Turn Notifier")]
 public class SO_TurnNotifier : ScriptableObject
 {
     public ITurnManager TurnManager { get; private set; }

@@ -1,14 +1,27 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerSelectorComponent : MonoBehaviour
+public class PlayerSelectorComponent : MonoBehaviour, ISelector
 {
+    public event UnityAction OnSelectionChanged;
+
     [SerializeField]
     private LayerMask _selectableLayerMask;
     [SerializeField]
     private bool _allowDeselectOnRepeatSelect = true;
+    [SerializeField]
+    private SO_SelectedNotifier _selectedNotifier;
 
-    private SelectableComponent _currentSelected;
+    public SelectableComponent CurrentSelected { get; private set;}
+
+    private void Awake()
+    {
+        if (_selectedNotifier != null)
+        {
+            _selectedNotifier.AssignSelector(this);
+        }
+    }
 
     private void Update()
     {
@@ -38,27 +51,35 @@ public class PlayerSelectorComponent : MonoBehaviour
     {
         if (selectable != null)
         {
-            if (_currentSelected == selectable)
+            if (CurrentSelected == selectable)
             {
                 if (_allowDeselectOnRepeatSelect)
                 {
-                    ClearLastSelection();
+                    Deselect();
                 }
                 return;
             }
 
+            // New selectable, doesnt use Deselect to avoid double invoking OnSelectionChanged
             ClearLastSelection();
-            _currentSelected = selectable;
+            CurrentSelected = selectable;
             selectable.OnSelected();
+            OnSelectionChanged?.Invoke();
         }
+    }
+
+    public void Deselect()
+    {
+        ClearLastSelection();
+        OnSelectionChanged?.Invoke();
     }
 
     private void ClearLastSelection()
     {
-        if (_currentSelected != null)
+        if (CurrentSelected != null)
         {
-            _currentSelected.OnDeselected();
-            _currentSelected = null;
+            CurrentSelected.OnDeselected();
+            CurrentSelected = null;
         }
     }
 }

@@ -223,6 +223,8 @@ MonoBehaviour:
   _selectableLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  _allowDeselectOnRepeatSelect: 1
+  _selectedNotifier: {fileID: 11400000, guid: f3b4640f87ca9a54d87b1220457ac8ed, type: 2}
 --- !u!1 &871446440
 GameObject:
   m_ObjectHideFlags: 0
