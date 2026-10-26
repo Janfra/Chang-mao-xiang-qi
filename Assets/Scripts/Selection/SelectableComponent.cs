@@ -4,6 +4,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(CircleCollider2D))]
 public class SelectableComponent : MonoBehaviour
 {
+    public bool IsSelected { get; private set; }    
+
     [SerializeField]
     private UnityEvent _onSelected;
     
@@ -19,10 +21,12 @@ public class SelectableComponent : MonoBehaviour
     public void OnSelected()
     {
         _onSelected?.Invoke();
+        IsSelected = true;
     }
     
     public void OnDeselected()
     {
         _onDeselected?.Invoke();
+        IsSelected = false;
     }
 }
