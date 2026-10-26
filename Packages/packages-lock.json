@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.janito.editorextras": {
-      "version": "https://github.com/Janfra/Janito-Unity-Packages.git?path=/JanitoEditorExtrasPackage",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "a12f3c609c00b5f7ddecb652abe4012b6fe1dd09"
-    },
     "com.unity.2d.animation": {
       "version": "13.0.2",
       "depth": 0,
