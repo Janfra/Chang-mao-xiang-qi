@@ -1,15 +1,16 @@
 using UnityEngine;
 
+// Ordered to easily cycle through straight movement and diagonal movement
 public enum Direction
 {
     Up,
-    UpRight,
-    UpLeft,
+    Right,
     Down,
+    Left,
+    UpLeft,
+    UpRight,
     DownRight,
     DownLeft,
-    Left,
-    Right
 }
 
 public static class DirectionExtensions
