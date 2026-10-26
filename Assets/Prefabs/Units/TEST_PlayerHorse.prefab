@@ -70,6 +70,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 659425209203158568, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9141716725416830627}
+    - targetCorrespondingSourceObject: {fileID: 659425209203158568, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9025739348588171012}
   m_SourcePrefab: {fileID: 100100000, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
 --- !u!1 &1501806459766379075 stripped
 GameObject:
@@ -154,6 +157,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9025739348588171012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501806459766379075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f83a88e85d845d4bbd708da9fc0c409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerUnit
+  _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
+  _selectableComponent: {fileID: 9141716725416830627}
 --- !u!212 &2558618992990720030 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4500161266831682677, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
