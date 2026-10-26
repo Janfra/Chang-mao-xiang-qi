@@ -20,6 +20,7 @@ public class Health
 {
     public event UnityAction OnDied;
     public event UnityAction OnDamaged;
+    public event UnityAction OnHealed;
 
     public int CurrentHealth { get; private set; }
     public int MaxHealth { get; private set; }
@@ -40,7 +41,7 @@ public class Health
         }
 
         CurrentHealth -= damage;
-        if (CurrentHealth < 0)
+        if (CurrentHealth <= 0)
         {
             OnDied?.Invoke();
             CurrentHealth = 0;
@@ -64,6 +65,7 @@ public class Health
         {
             CurrentHealth = MaxHealth;
         }
+        OnHealed?.Invoke(); 
     }
 
     public void Reset()
