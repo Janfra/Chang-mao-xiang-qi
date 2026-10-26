@@ -11,17 +11,22 @@ public class GridMovement : MonoBehaviour
 {
     public event UnityAction OnMoveCompleted;
 
-    public SO_GridSettings GridSettings;
-    public float MoveSpeed = 5f;
+    [field: SerializeField]
+    public SO_MovementSettings MovementSettings { get; private set; }
 
     private Vector3 _targetPosition;
     private bool _isMoving = false;
+    public Vector2 Position => new Vector2(transform.position.x, transform.position.y);
 
     private void Awake()
     {
-        if (GridSettings == null)
+        if (MovementSettings == null)
         {
-            Debug.LogError("GridSettings is not assigned in GridMovement.");
+            Debug.LogError("MovementSettings is not assigned in GridMovement.");
+            if (MovementSettings.GridSettings == null)
+            {
+                Debug.LogError("GridSettings is not assigned in MovementSettings.");
+            }
         }
 
         CheckAlignment();
@@ -30,7 +35,7 @@ public class GridMovement : MonoBehaviour
     [ContextMenu("Check Alignment")]
     private void CheckAlignment()
     {
-        if (!transform.position.IsAlignedToGrid(GridSettings.GridSize))
+        if (!transform.position.IsAlignedToGrid(MovementSettings.GridSettings.GridSize))
         {
             Debug.LogWarning("Object is not aligned to the grid. Consider snapping it to the nearest grid point.");
         }
@@ -45,7 +50,7 @@ public class GridMovement : MonoBehaviour
         }
     }
 
-    public void MoveTo(Direction direction, int distance = 1)
+    public void MoveTo(Vector2 position)
     {
         if (_isMoving)
         {
@@ -53,15 +58,20 @@ public class GridMovement : MonoBehaviour
             return;
         }
 
-        distance = Mathf.Max(1, distance); // Ensure distance is at least 1
-        _targetPosition = transform.position + direction.ToVector3() * (distance * GridSettings.GridSize);
+        if (!position.IsAlignedToGrid(MovementSettings.GridSettings.GridSize))
+        {
+            Debug.LogWarning("Target position is not aligned to the grid. Will be ignored, consider snapping it to grid first.");
+            return;
+        }
+
+        _targetPosition = position;
         _isMoving = true;
     }
 
     private void MoveTowardsTarget()
     {
         // Not using physics for now for simplicity
-        transform.position = Vector3.MoveTowards(transform.position, _targetPosition, MoveSpeed * Time.fixedDeltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _targetPosition, MovementSettings.MoveSpeed * Time.fixedDeltaTime);
         if (Vector3.Distance(transform.position, _targetPosition) < 0.1f)
         {
             _isMoving = false;
