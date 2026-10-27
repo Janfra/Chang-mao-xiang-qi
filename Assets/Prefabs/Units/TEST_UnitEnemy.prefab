@@ -126,9 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a960eaf6e6dc5347b249f598e9cffe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
-  _movementType: {fileID: 0}
-  _gridRestrictionComponent: {fileID: 0}
-  KingPos: {x: 0, y: 0}
+  _movementType: {fileID: 11400000, guid: 59e825078e1dae34a839429b49847bc0, type: 2}
+  _gridRestrictionComponent: {fileID: 135906430521037189}
+  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
+  KingPos: {x: 0, y: -2}
 --- !u!1 &774624509195743925
 GameObject:
   m_ObjectHideFlags: 0

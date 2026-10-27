@@ -32,9 +32,9 @@ public class EnemyManager : MonoBehaviour
 
     public void DoTurn()
     {
-        Vector3 kingPos; 
-        kingPos = new Vector3(0,-2,0);
-
+        Vector3 kingPos;
+        kingPos = KingSingleton.Instance.GetKingPos();
+        
         foreach (var item in _enemies)
         {
 
