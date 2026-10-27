@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-
 public class PlayerUnit : MonoBehaviour
 {
     [SerializeField]
@@ -24,7 +23,7 @@ public class PlayerUnit : MonoBehaviour
     [SerializeField]
     private bool _drawDebugOnlySelected;
 
-    private bool _isActive => _turnNotifier?.TurnManager?.CurrentTurnState == TurnState.Player;
+    public bool IsActive => _turnNotifier?.TurnManager?.CurrentTurnState == TurnState.Player;
     private bool _hasMoved = false;
 
     private void Awake()
@@ -93,11 +92,21 @@ public class PlayerUnit : MonoBehaviour
 
     private void OnSelected()
     {
+        if (!IsActive)
+        {
+            return;
+        }
+
         TryShowMoveOptions();
     }
 
     private void OnDeselect()
     {
+        if (!IsActive)
+        {
+            return;
+        }
+
         _positionSelector.HideAll();
     }
 
