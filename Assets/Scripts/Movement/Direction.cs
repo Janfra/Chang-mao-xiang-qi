@@ -11,6 +11,7 @@ public enum Direction
     UpRight,
     DownRight,
     DownLeft,
+    DIRECTION_COUNT // Use only for counting purposes
 }
 
 public static class DirectionExtensions
@@ -29,5 +30,9 @@ public static class DirectionExtensions
             Direction.Right => new Vector3(1, 0, 0),
             _ => throw new System.ArgumentOutOfRangeException(nameof(direction), direction, null)
         };
+    }
+    public static Vector2 ToVector2(this Direction direction)
+    {
+        return ToVector3(direction);
     }
 }
