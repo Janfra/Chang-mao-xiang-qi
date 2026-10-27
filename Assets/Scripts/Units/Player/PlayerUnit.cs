@@ -1,6 +1,4 @@
 using UnityEngine;
-using System;
-
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -20,6 +18,9 @@ public class PlayerUnit : Unit
 
     [SerializeField]
     private PositionSelector _positionSelector;
+
+    [SerializeField]
+    private SO_PlayerUnitRegistry _unitRegistry;
 
     [Header("Debug")]
     [SerializeField]
@@ -45,6 +46,7 @@ public class PlayerUnit : Unit
         _gridMovement.OnMoveCompleted += OnMoveComplete;
         SelectableComponent.OnSelected += OnSelect;
         SelectableComponent.OnDeselected += OnDeselect;
+        _unitRegistry?.Register(this);
     }
 
     protected virtual void OnDisable()
@@ -53,6 +55,7 @@ public class PlayerUnit : Unit
         _gridMovement.OnMoveCompleted -= OnMoveComplete;
         SelectableComponent.OnSelected -= OnSelect;
         SelectableComponent.OnDeselected += OnDeselect;
+        _unitRegistry?.Remove(this);
     }
 
     public virtual void TryShowMoveOptions()
