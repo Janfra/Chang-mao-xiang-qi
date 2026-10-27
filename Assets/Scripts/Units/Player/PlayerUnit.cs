@@ -25,7 +25,7 @@ public class PlayerUnit : Unit
     public bool IsActive => _turnNotifier?.TurnManager?.CurrentTurnState == TurnState.Player;
     public int MoveCount { get; private set; }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _positionSelector.Awake(OnPositionSelect);
     }
@@ -105,6 +105,17 @@ public class PlayerUnit : Unit
             return;
         }
 
+        _positionSelector.HideAll();
+    }
+
+    protected void ShowPositionSelections(Vector2[] positions)
+    {
+        _positionSelector.HideAll();
+        _positionSelector.ShowOptionsAt(positions);
+    }
+
+    protected void HidePositionSelections()
+    {
         _positionSelector.HideAll();
     }
 

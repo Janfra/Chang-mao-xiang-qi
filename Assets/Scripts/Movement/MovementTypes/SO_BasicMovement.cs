@@ -11,15 +11,18 @@ public class SO_BasicMovement : SO_MovementType
     {
         // For now only ever do 1 step max for simplicity
         _positions.Clear();
-        steps = Mathf.Clamp(steps, 1, 1); // Clamp it to be within max grid size `GridExtensions.GridLength` when ready
+        steps = Mathf.Clamp(steps, 1, GridExtensions.GridLength); // Clamp it to be within max grid size
         const int DirectionCount = (int)Direction.DIRECTION_COUNT;
         int size = steps * DirectionCount;
         _positions.EnsureCapacity(size);
 
         for (int i = 0; i < DirectionCount; i++)
         {
-            Direction direction = (Direction)i;
-            _positions.Add(origin + direction.ToVector2() * (GridSettings.GridSize * steps));
+            for (int j = 1; j <= steps; j++)
+            {
+                Direction direction = (Direction)i;
+                _positions.Add(origin + direction.ToVector2() * (GridSettings.GridSize * j));
+            }
         }
 
         return _positions.ToArray();

@@ -1,44 +1,4 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
-
-[Serializable]
-public class Attack
-{
-    public Transform Source;
-
-    [SerializeField]
-    private SO_MovementType _attackMove;
-    [SerializeField]
-    private int _attackRange = 1;
-    [SerializeField]
-    private float _attackRadius = 0.4f;
-    [SerializeField]
-    private LayerMask _attackMask;
-
-    private HashSet<Vector2> _validAttackPoints = new();
-
-    public Vector2[] GetAttackDirections()
-    {
-        return _attackMove.GetMovePositionsAtSteps(Source.position, _attackRange);
-    }
-
-    public Vector2[] GetValidAttackOptions()
-    {
-        var positions = GetAttackDirections();
-        foreach (var position in positions)
-        {
-            var result = Physics2D.OverlapCircle(position, _attackRadius, _attackMask.value);
-            if (result)
-            {
-                var health = result.GetComponent<HealthComponent>();
-                
-            }
-        }
-
-        return positions;
-    }
-}
 
 public class PlayerHorseUnit : PlayerUnit
 {
@@ -47,6 +7,12 @@ public class PlayerHorseUnit : PlayerUnit
 
     private bool _hasMoved => MoveCount > 0;
     private bool _hasAttacked = false;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        _attack.Source = transform;
+    }
 
     public override void TryShowMoveOptions()
     {
@@ -64,6 +30,23 @@ public class PlayerHorseUnit : PlayerUnit
         base.OnTurnStart();
     }
 
+    protected override void OnSelect()
+    {
+        if (!IsActive)
+        {
+            return;
+        }
+
+        if (!_hasMoved)
+        {
+            TryShowMoveOptions();
+        }
+        else if (!_hasAttacked)
+        {
+            ShowAttackOptions();
+        }
+    }
+
     protected override void OnPositionSelect(Vector2 position)
     {
         if (_hasMoved && _hasAttacked)
@@ -78,11 +61,25 @@ public class PlayerHorseUnit : PlayerUnit
         else
         {
             _hasAttacked = true;
+            HidePositionSelections();
+            _attack.DealDamageAt(position);
         }
     }
 
     protected override void OnMoveComplete()
     {
-        //var positions = _attack.GetAttackDirections();
+        ShowAttackOptions();
+    }
+
+    private void ShowAttackOptions()
+    {
+        var options = _attack.GetValidAttackOptions();
+        Vector2[] attackPositions = new Vector2[options.Length];
+        for (int i = 0; i < attackPositions.Length; i++)
+        {
+            attackPositions[i] = options[i].Position;
+        }
+
+        ShowPositionSelections(attackPositions);
     }
 }
