@@ -8,7 +8,7 @@ public class EnemyUnit : Unit
     public Vector2 GetBestMove()
     {
         var positions = GetPossiblePositions();
-        
+        KingPos = KingSingleton.Instance.GetKingPos();
         Vector2 BestPos;
         BestPos = new Vector2(0,9999);
         foreach (var position in positions)
