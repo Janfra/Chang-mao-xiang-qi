@@ -130,7 +130,7 @@ PrefabInstance:
     - target: {fileID: 189737837385473942, guid: 654f3ee02c3e6d449a2d5ea82d116371, type: 3}
       propertyPath: _attack._attackMove
       value: 
-      objectReference: {fileID: 11400000, guid: 59e825078e1dae34a839429b49847bc0, type: 2}
+      objectReference: {fileID: 11400000, guid: 6fb5fdf001e2e2041ba9e609f770059e, type: 2}
     - target: {fileID: 189737837385473942, guid: 654f3ee02c3e6d449a2d5ea82d116371, type: 3}
       propertyPath: _attack._attackRange
       value: 2
