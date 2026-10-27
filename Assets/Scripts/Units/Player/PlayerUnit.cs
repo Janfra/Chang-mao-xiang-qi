@@ -12,11 +12,7 @@ public class PlayerUnit : Unit
     [SerializeField]
     private SelectableComponent _selectableComponent;
     [SerializeField]
-    private GridRestrictionComponent _gridRestrictionComponent;
-    [SerializeField]
     private GridMovement _gridMovement;
-    [SerializeField]
-    private SO_MovementType _movementType;
     [SerializeField]
     private PositionSelector _positionSelector;
 
