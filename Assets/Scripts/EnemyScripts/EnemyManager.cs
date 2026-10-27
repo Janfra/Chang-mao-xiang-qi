@@ -10,7 +10,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private SO_GridSettings SO_GridSet;
     private void Awake()
     {
-        SO_turn.TurnManager.OnEnemyTurn += DoTurn;
         // If there is an instance, and it's not me, delete myself.
 
         if (Instance != null && Instance != this)
@@ -21,7 +20,15 @@ public class EnemyManager : MonoBehaviour
         {
             Instance = this;
         }
+        
     }
+
+    private void Start()
+    {
+        SO_turn.TurnManager.OnEnemyTurn += DoTurn;
+    }
+
+
     private void OnDestroy()
     {
         SO_turn.TurnManager.OnEnemyTurn -= DoTurn;
