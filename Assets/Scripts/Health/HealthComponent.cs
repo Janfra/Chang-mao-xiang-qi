@@ -5,13 +5,30 @@ using UnityEngine.Events;
 public class HealthComponent : MonoBehaviour
 {
     [SerializeField]
+    private UnityEvent _onDied;
+    [SerializeField]
+    private UnityEvent _onTookDamage;
+
+    [SerializeField]
     private SO_Health healthConfiguration;
 
-    private Health health;
+    public Health Health { get; private set; }
 
     private void Awake()
     {
-        health = new(healthConfiguration ? healthConfiguration.MaxHealth : 1);
+        Health = new(healthConfiguration ? healthConfiguration.MaxHealth : 1);
+    }
+
+    private void OnEnable()
+    {
+        Health.OnDied += _onDied.Invoke;
+        Health.OnDamaged += _onTookDamage.Invoke;
+    }
+
+    private void OnDisable()
+    {
+        Health.OnDied -= _onDied.Invoke;
+        Health.OnDamaged += _onTookDamage.Invoke;
     }
 }
 

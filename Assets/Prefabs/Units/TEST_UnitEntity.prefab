@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5159888137804984473}
   - component: {fileID: 1739055016608831515}
   - component: {fileID: 135906430521037189}
-  - component: {fileID: 8374283077929247776}
+  - component: {fileID: 9198422712168449802}
   m_Layer: 0
   m_Name: TEST_UnitEntity
   m_TagString: Untagged
@@ -48,6 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b761b6e927073ac4cb05c583854d657e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _onDied:
+    m_PersistentCalls:
+      m_Calls: []
+  _onTookDamage:
+    m_PersistentCalls:
+      m_Calls: []
   healthConfiguration: {fileID: 11400000, guid: f872fd214ad970548a97413fdf81b3b7, type: 2}
 --- !u!114 &1739055016608831515
 MonoBehaviour:
@@ -77,7 +83,7 @@ MonoBehaviour:
   GridSettings: {fileID: 11400000, guid: 57c189f388d915141b953076360cbde6, type: 2}
   Constraints:
   - {fileID: 11400000, guid: 643b17a6987c4544a9deab5a6e34d9bb, type: 2}
---- !u!58 &8374283077929247776
+--- !u!58 &9198422712168449802
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
