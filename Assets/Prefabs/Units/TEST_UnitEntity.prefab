@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 1739055016608831515}
   - component: {fileID: 135906430521037189}
   - component: {fileID: 9198422712168449802}
-  - component: {fileID: 6497439077579778492}
-  - component: {fileID: 3726412628331581710}
   m_Layer: 0
   m_Name: TEST_UnitEntity
   m_TagString: Untagged
@@ -134,56 +132,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.4
---- !u!114 &6497439077579778492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659425209203158568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7f4b91f7b033c24d8dadf99f1297b75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerHorseUnit
-  _movementType: {fileID: 11400000, guid: 5fe749da67709fe468358accd77bd545, type: 2}
-  _gridRestrictionComponent: {fileID: 135906430521037189}
-  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
-  _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
-  <SelectableComponent>k__BackingField: {fileID: 3726412628331581710}
-  _gridMovement: {fileID: 1739055016608831515}
-  _positionSelector:
-    InstancesParent: {fileID: 0}
-    _positionOptionPrefab: {fileID: 0}
-  _drawDebugOnlySelected: 0
-  _attack:
-    Source: {fileID: 0}
-    _attackMove: {fileID: 11400000, guid: 6fb5fdf001e2e2041ba9e609f770059e, type: 2}
-    _attackRange: 2
-    _attackRadius: 0.4
-    _attackMask:
-      serializedVersion: 2
-      m_Bits: 7
-    _damage: 1
---- !u!114 &3726412628331581710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659425209203158568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75b3c9ecbb0d94d4ab2e2eb676152ec1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectableComponent
-  <CanBeFocused>k__BackingField: 0
-  _onSelected:
-    m_PersistentCalls:
-      m_Calls: []
-  _onDeselected:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &774624509195743925
 GameObject:
   m_ObjectHideFlags: 0
