@@ -1,5 +1,6 @@
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyUnit : Unit
 {
@@ -14,6 +15,10 @@ public class EnemyUnit : Unit
         foreach (var position in positions)
         {
             if( math.distance(position,KingPos) < math.distance(BestPos, KingPos))
+            {
+                BestPos = position;
+            }
+            else if (math.distance(position, KingPos) < ( math.distance(BestPos, KingPos) + Random.Range(0f,0.7f) ))
             {
                 BestPos = position;
             }

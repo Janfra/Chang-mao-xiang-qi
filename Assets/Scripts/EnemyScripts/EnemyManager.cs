@@ -47,10 +47,14 @@ public class EnemyManager : MonoBehaviour
 
     private void CreateNewEnemy()
     {
-        _enemies.Add(Instantiate(enemyPrefab, new Vector3(Random.Range(-4,4), 6, 0), Quaternion.identity));
+        _enemies.Add(Instantiate(enemyPrefab, new Vector3(Random.Range(-4,5), 6, 0), Quaternion.identity));
         _enemies[_enemies.Count - 1].GetComponent<GridMovement>().OnMoveCompleted += MoveEach;
     }
 
+    public void removeEnemy(GameObject toRemove)
+    {
+        _enemies.Remove(toRemove);
+    }
     
 
     public void DoTurn()
