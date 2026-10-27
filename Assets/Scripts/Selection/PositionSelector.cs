@@ -4,9 +4,6 @@ using UnityEngine.Pool;
 using UnityEngine.Events;
 using System.Collections.Generic;
 
-#if UNITY_EDITOR
-#endif
-
 [Serializable]
 public class PositionSelector
 {
