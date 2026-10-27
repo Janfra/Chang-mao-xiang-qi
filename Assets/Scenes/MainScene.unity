@@ -264,6 +264,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TEST_PlayerHorse (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4552815776081494548, guid: 654f3ee02c3e6d449a2d5ea82d116371, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552815776081494548, guid: 654f3ee02c3e6d449a2d5ea82d116371, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 7734814925775881508, guid: 654f3ee02c3e6d449a2d5ea82d116371, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -411,6 +419,14 @@ PrefabInstance:
     - target: {fileID: 1501806459766379075, guid: 654f3ee02c3e6d449a2d5ea82d116371, type: 3}
       propertyPath: m_Name
       value: TEST_PlayerHorse
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552815776081494548, guid: 654f3ee02c3e6d449a2d5ea82d116371, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552815776081494548, guid: 654f3ee02c3e6d449a2d5ea82d116371, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7734814925775881508, guid: 654f3ee02c3e6d449a2d5ea82d116371, type: 3}
       propertyPath: m_LocalPosition.x
@@ -873,7 +889,7 @@ MonoBehaviour:
   SO_turn: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
   SO_ColConst: {fileID: 11400000, guid: 643b17a6987c4544a9deab5a6e34d9bb, type: 2}
   SO_GridSet: {fileID: 11400000, guid: 57c189f388d915141b953076360cbde6, type: 2}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 659425209203158568, guid: 2fe06dbe7888395498fa51981c9c30b3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
