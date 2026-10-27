@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-
 public class PlayerUnit : Unit
 {
     [SerializeField]
@@ -20,12 +19,12 @@ public class PlayerUnit : Unit
     [SerializeField]
     private bool _drawDebugOnlySelected;
 
-    private bool _isActive => _turnNotifier?.TurnManager?.CurrentTurnState == TurnState.Player;
+    public bool IsActive => _turnNotifier?.TurnManager?.CurrentTurnState == TurnState.Player;
     private bool _hasMoved = false;
 
     private void Awake()
     {
-        _positionSelector.Awake(OnPositionSelected);
+        _positionSelector.Awake(OnPositionSelect);
     }
 
     private void OnEnable()
@@ -37,16 +36,16 @@ public class PlayerUnit : Unit
         }
 
         ListenForTurnUpdates();
-        _gridMovement.OnMoveCompleted += OnMoveCompleted;
-        _selectableComponent.OnSelected += OnSelected;
+        _gridMovement.OnMoveCompleted += OnMoveComplete;
+        _selectableComponent.OnSelected += OnSelect;
         _selectableComponent.OnDeselected += OnDeselect;
     }
 
     private void OnDisable()
     {
         StopListeningForTurnUpdates();
-        _gridMovement.OnMoveCompleted -= OnMoveCompleted;
-        _selectableComponent.OnSelected -= OnSelected;
+        _gridMovement.OnMoveCompleted -= OnMoveComplete;
+        _selectableComponent.OnSelected -= OnSelect;
         _selectableComponent.OnDeselected += OnDeselect;
     }
 
@@ -87,17 +86,27 @@ public class PlayerUnit : Unit
         }
     }
 
-    private void OnSelected()
+    private void OnSelect()
     {
+        if (!IsActive)
+        {
+            return;
+        }
+
         TryShowMoveOptions();
     }
 
     private void OnDeselect()
     {
+        if (!IsActive)
+        {
+            return;
+        }
+
         _positionSelector.HideAll();
     }
 
-    private void OnPositionSelected(Vector2 position)
+    private void OnPositionSelect(Vector2 position)
     {
         if (_gridMovement.IsMoving || _hasMoved)
         {
@@ -109,7 +118,7 @@ public class PlayerUnit : Unit
         _positionSelector.HideAll();
     }
 
-    private void OnMoveCompleted()
+    private void OnMoveComplete()
     {
         
     }
