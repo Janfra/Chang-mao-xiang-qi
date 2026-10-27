@@ -15,6 +15,10 @@ public class PlayerUnit : MonoBehaviour
     [SerializeField]
     private SO_MovementType _movementType;
 
+    [Header("Debug")]
+    [SerializeField]
+    private bool _drawDebugOnlySelected;
+
     private bool _isActive => _turnNotifier?.TurnManager?.CurrentTurnState == TurnState.Player;
 
     private void OnEnable()
@@ -57,7 +61,23 @@ public class PlayerUnit : MonoBehaviour
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        if (!_drawDebugOnlySelected)
+        {
+            DrawUnitValidMovePositions();
+        }
+    }
+
     private void OnDrawGizmosSelected()
+    {
+        if (_drawDebugOnlySelected)
+        {
+            DrawUnitValidMovePositions();
+        }
+    }
+
+    private void DrawUnitValidMovePositions()
     {
         if (_movementType)
         {

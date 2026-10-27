@@ -114,7 +114,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!114 &9141716725416830627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +173,7 @@ MonoBehaviour:
   _selectableComponent: {fileID: 9141716725416830627}
   _gridRestrictionComponent: {fileID: 2022983279151099374}
   _movementType: {fileID: 11400000, guid: 5fe749da67709fe468358accd77bd545, type: 2}
+  _drawDebugOnlySelected: 0
 --- !u!114 &2022983279151099374 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 135906430521037189, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
