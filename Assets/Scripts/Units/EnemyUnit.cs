@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class EnemyUnit : Unit
 {
-    
     [SerializeField] private Vector2 KingPos;
-
 
     public Vector2 GetBestMove()
     {
@@ -20,6 +18,5 @@ public class EnemyUnit : Unit
             }
         }
         return BestPos;
-
     }
 }

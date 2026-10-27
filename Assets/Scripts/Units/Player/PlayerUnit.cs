@@ -8,10 +8,13 @@ public class PlayerUnit : Unit
 {
     [SerializeField]
     private SO_TurnNotifier _turnNotifier;
-    [SerializeField]
-    private SelectableComponent _selectableComponent;
+
+    [field: SerializeField]
+    public SelectableComponent SelectableComponent { get; private set; }
+
     [SerializeField]
     private GridMovement _gridMovement;
+
     [SerializeField]
     private PositionSelector _positionSelector;
 
@@ -20,14 +23,14 @@ public class PlayerUnit : Unit
     private bool _drawDebugOnlySelected;
 
     public bool IsActive => _turnNotifier?.TurnManager?.CurrentTurnState == TurnState.Player;
-    private bool _hasMoved = false;
+    public int MoveCount { get; private set; }
 
     private void Awake()
     {
         _positionSelector.Awake(OnPositionSelect);
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         if (_turnNotifier == null)
         {
@@ -37,21 +40,21 @@ public class PlayerUnit : Unit
 
         ListenForTurnUpdates();
         _gridMovement.OnMoveCompleted += OnMoveComplete;
-        _selectableComponent.OnSelected += OnSelect;
-        _selectableComponent.OnDeselected += OnDeselect;
+        SelectableComponent.OnSelected += OnSelect;
+        SelectableComponent.OnDeselected += OnDeselect;
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         StopListeningForTurnUpdates();
         _gridMovement.OnMoveCompleted -= OnMoveComplete;
-        _selectableComponent.OnSelected -= OnSelect;
-        _selectableComponent.OnDeselected += OnDeselect;
+        SelectableComponent.OnSelected -= OnSelect;
+        SelectableComponent.OnDeselected += OnDeselect;
     }
 
-    public void TryShowMoveOptions()
+    public virtual void TryShowMoveOptions()
     {
-        if (_hasMoved)
+        if (!IsActive)
         {
             return;
         }
@@ -76,16 +79,16 @@ public class PlayerUnit : Unit
         }
     }
 
-    private void OnTurnStart()
+    protected virtual void OnTurnStart()
     {
-        _hasMoved = false;
-        if (_selectableComponent.IsSelected)
+        MoveCount = 0;
+        if (SelectableComponent.IsSelected)
         {
             TryShowMoveOptions();
         }
     }
 
-    private void OnSelect()
+    protected virtual void OnSelect()
     {
         if (!IsActive)
         {
@@ -95,7 +98,7 @@ public class PlayerUnit : Unit
         TryShowMoveOptions();
     }
 
-    private void OnDeselect()
+    protected virtual void OnDeselect()
     {
         if (!IsActive)
         {
@@ -105,19 +108,19 @@ public class PlayerUnit : Unit
         _positionSelector.HideAll();
     }
 
-    private void OnPositionSelect(Vector2 position)
+    protected virtual void OnPositionSelect(Vector2 position)
     {
-        if (_gridMovement.IsMoving || _hasMoved)
+        if (_gridMovement.IsMoving || MoveCount > 0)
         {
             return;
         }
 
-        _hasMoved = true;
         _gridMovement.MoveTo(position);
+        MoveCount++;
         _positionSelector.HideAll();
     }
 
-    private void OnMoveComplete()
+    protected virtual void OnMoveComplete()
     {
         
     }

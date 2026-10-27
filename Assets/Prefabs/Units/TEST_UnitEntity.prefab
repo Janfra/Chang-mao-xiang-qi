@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5159888137804984473}
   - component: {fileID: 1739055016608831515}
   - component: {fileID: 135906430521037189}
-  - component: {fileID: 8374283077929247776}
   m_Layer: 0
   m_Name: TEST_UnitEntity
   m_TagString: Untagged
@@ -77,42 +76,6 @@ MonoBehaviour:
   GridSettings: {fileID: 11400000, guid: 57c189f388d915141b953076360cbde6, type: 2}
   Constraints:
   - {fileID: 11400000, guid: 643b17a6987c4544a9deab5a6e34d9bb, type: 2}
---- !u!58 &8374283077929247776
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659425209203158568}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.4
 --- !u!1 &774624509195743925
 GameObject:
   m_ObjectHideFlags: 0

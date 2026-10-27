@@ -192,7 +192,7 @@ MonoBehaviour:
   _gridRestrictionComponent: {fileID: 2022983279151099374}
   <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
   _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
-  _selectableComponent: {fileID: 9141716725416830627}
+  <SelectableComponent>k__BackingField: {fileID: 9141716725416830627}
   _gridMovement: {fileID: 419855032954545264}
   _positionSelector:
     InstancesParent: {fileID: 0}

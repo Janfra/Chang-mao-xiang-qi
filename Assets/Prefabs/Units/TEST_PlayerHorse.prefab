@@ -60,8 +60,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8374283077929247776, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -73,7 +72,7 @@ PrefabInstance:
       addedObject: {fileID: 9141716725416830627}
     - targetCorrespondingSourceObject: {fileID: 659425209203158568, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9025739348588171012}
+      addedObject: {fileID: 189737837385473942}
   m_SourcePrefab: {fileID: 100100000, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
 --- !u!114 &419855032954545264 stripped
 MonoBehaviour:
@@ -170,7 +169,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &9025739348588171012
+--- !u!114 &189737837385473942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,19 +178,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1501806459766379075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f83a88e85d845d4bbd708da9fc0c409, type: 3}
+  m_Script: {fileID: 11500000, guid: f7f4b91f7b033c24d8dadf99f1297b75, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerUnit
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHorseUnit
   _movementType: {fileID: 11400000, guid: 5fe749da67709fe468358accd77bd545, type: 2}
   _gridRestrictionComponent: {fileID: 2022983279151099374}
   <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
   _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
-  _selectableComponent: {fileID: 9141716725416830627}
+  <SelectableComponent>k__BackingField: {fileID: 9141716725416830627}
   _gridMovement: {fileID: 419855032954545264}
   _positionSelector:
     InstancesParent: {fileID: 0}
     _positionOptionPrefab: {fileID: 8903694132015994187, guid: a734706fa950ec04db4cbabe48b137d7, type: 3}
-  _drawDebugOnlySelected: 1
+  _drawDebugOnlySelected: 0
 --- !u!114 &2022983279151099374 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 135906430521037189, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
