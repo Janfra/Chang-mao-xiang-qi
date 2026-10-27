@@ -21,7 +21,7 @@
                     "name": "",
                     "id": "5f0e3f08-f8d0-41b5-8f7d-c561d55ae3fd",
                     "path": "<Keyboard>/enter",
-                    "interactions": "",
+                    "interactions": "Tap(duration=1,pressPoint=0.5)",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Endturn",
