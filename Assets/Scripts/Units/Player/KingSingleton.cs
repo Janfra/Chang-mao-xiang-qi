@@ -1,3 +1,4 @@
+using System.Dynamic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -25,9 +26,14 @@ public class KingSingleton : MonoBehaviour
         return transform.position;
     }
 
-    public void Endturn()
+    public void Endturn(InputAction.CallbackContext call)
     {
-        Debug.Log("Player Turn Ended");
-        SO_turn.TurnManager.RequestEndPlayerTurn();
+
+        if (call.started)
+        {
+
+            SO_turn.TurnManager.RequestEndPlayerTurn();
+        }
+        
     }
 }

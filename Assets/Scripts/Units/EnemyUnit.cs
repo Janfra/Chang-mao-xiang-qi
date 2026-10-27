@@ -10,16 +10,18 @@ public class EnemyUnit : Unit
     public Vector2 GetBestMove()
     {
         var positions = GetPossiblePositions();
+        
         Vector2 BestPos;
-        BestPos = new Vector2();
+        BestPos = new Vector2(0,9999);
         foreach (var position in positions)
         {
-            if(BestPos == null || math.distance(position,KingPos) < math.distance(BestPos, KingPos))
+            if( math.distance(position,KingPos) < math.distance(BestPos, KingPos))
             {
                 BestPos = position;
             }
         }
-        return BestPos;
+        if (BestPos == new Vector2(0, 9999)) return transform.position;
+        else return BestPos;
 
     }
 }
