@@ -13,7 +13,7 @@ public class EnemyUnit : Unit
     }
     public Vector2 GetBestMove()
     {
-        var positions =  GetPossiblePosisions();
+        var positions = GetPossiblePositions();
         Vector2 BestPos;
         BestPos = new Vector2();
         foreach (var position in positions)

@@ -143,7 +143,7 @@ public class PlayerUnit : Unit
     {
         if (_movementType)
         {
-            var positions = GetPossiblePosisions();
+            var positions = GetPossiblePositions();
 
             foreach (var position in positions)
             {

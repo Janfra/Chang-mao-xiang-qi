@@ -7,7 +7,7 @@ public class Unit : MonoBehaviour
     [SerializeField] protected GridRestrictionComponent _gridRestrictionComponent;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    protected Vector2[] GetPossiblePosisions()
+    protected Vector2[] GetPossiblePositions()
     {
         var positions = _movementType.GetMovePositionsAtSteps(transform.position, 1);
         if (_gridRestrictionComponent)
