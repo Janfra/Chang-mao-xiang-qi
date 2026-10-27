@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -68,6 +70,7 @@ public class PlayerUnit : Unit
         if (_turnNotifier.TurnManager != null)
         {
             _turnNotifier.TurnManager.OnPlayerTurn += OnTurnStart;
+            _turnNotifier.TurnManager.OnEnemyTurn += OnTurnEnd;
         }
     }
 
@@ -76,6 +79,8 @@ public class PlayerUnit : Unit
         if (_turnNotifier.TurnManager != null)
         {
             _turnNotifier.TurnManager.OnPlayerTurn -= OnTurnStart;
+            _turnNotifier.TurnManager.OnEnemyTurn -= OnTurnEnd;
+
         }
     }
 
@@ -86,6 +91,11 @@ public class PlayerUnit : Unit
         {
             TryShowMoveOptions();
         }
+    }
+
+    protected virtual void OnTurnEnd()
+    {
+        HidePositionSelections();
     }
 
     protected virtual void OnSelect()

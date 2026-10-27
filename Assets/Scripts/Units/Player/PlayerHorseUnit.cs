@@ -26,8 +26,8 @@ public class PlayerHorseUnit : PlayerUnit
 
     protected override void OnTurnStart()
     {
-        _hasAttacked = false;
         base.OnTurnStart();
+        _hasAttacked = false;
     }
 
     protected override void OnSelect()
@@ -49,8 +49,9 @@ public class PlayerHorseUnit : PlayerUnit
 
     protected override void OnPositionSelect(Vector2 position)
     {
-        if (_hasMoved && _hasAttacked)
+        if (_hasMoved && _hasAttacked || !IsActive)
         {
+            HidePositionSelections();
             return;
         }
 
