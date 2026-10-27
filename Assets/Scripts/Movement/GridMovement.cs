@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// Movement component that aligns with grid, allowing movement in 8 directions (up, down, left, right, and diagonals).
+/// Movement component that aligns with grid
 /// <remarks>
 /// Does not use physics for movement, so it is not affected by Unity's physics engine. Does not perform any collision detection or response, any overlapping with other objects will need to be handled separately before movement is started since we are going for turn-based.
 /// </remarks>
