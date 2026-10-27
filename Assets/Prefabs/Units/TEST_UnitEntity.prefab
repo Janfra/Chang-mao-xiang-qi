@@ -96,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridRestrictionComponent
   GridSettings: {fileID: 11400000, guid: 57c189f388d915141b953076360cbde6, type: 2}
   Constraints:
+  - {fileID: 11400000, guid: b477d92c83b99d849a8fe8f9f761f79c, type: 2}
   - {fileID: 11400000, guid: 643b17a6987c4544a9deab5a6e34d9bb, type: 2}
 --- !u!58 &9198422712168449802
 CircleCollider2D:

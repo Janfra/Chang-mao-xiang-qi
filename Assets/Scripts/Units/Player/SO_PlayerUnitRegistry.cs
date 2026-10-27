@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Player Unit Registry", menuName = "Scriptable Objects/Registry/Player Units")]
+[CreateAssetMenu(fileName = "Player Unit Registry", menuName = "ScriptableObjects/Registry/Player Units")]
 public class SO_PlayerUnitRegistry : ScriptableObject
 {
     public List<PlayerUnit> PlayerUnits { get; private set; } = new();
