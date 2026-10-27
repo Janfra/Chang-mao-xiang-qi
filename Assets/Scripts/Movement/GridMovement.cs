@@ -14,8 +14,8 @@ public class GridMovement : MonoBehaviour
     [field: SerializeField]
     public SO_MovementSettings MovementSettings { get; private set; }
 
+    public bool IsMoving { get; private set; } = false;
     private Vector3 _targetPosition;
-    private bool _isMoving = false;
     public Vector2 Position => new Vector2(transform.position.x, transform.position.y);
 
     private void Awake()
@@ -44,7 +44,7 @@ public class GridMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Not physics-based so not needed, but may be useful if we add physics later
-        if (_isMoving)
+        if (IsMoving)
         {
             MoveTowardsTarget();
         }
@@ -52,7 +52,7 @@ public class GridMovement : MonoBehaviour
 
     public void MoveTo(Vector2 position)
     {
-        if (_isMoving)
+        if (IsMoving)
         {
             Debug.LogWarning("Already moving. Cannot initiate another move.");
             return;
@@ -65,7 +65,7 @@ public class GridMovement : MonoBehaviour
         }
 
         _targetPosition = position;
-        _isMoving = true;
+        IsMoving = true;
     }
 
     private void MoveTowardsTarget()
@@ -74,7 +74,7 @@ public class GridMovement : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, _targetPosition, MovementSettings.MoveSpeed * Time.fixedDeltaTime);
         if (Vector3.Distance(transform.position, _targetPosition) < 0.1f)
         {
-            _isMoving = false;
+            IsMoving = false;
             transform.position = _targetPosition;
             OnMoveCompleted?.Invoke();
         }

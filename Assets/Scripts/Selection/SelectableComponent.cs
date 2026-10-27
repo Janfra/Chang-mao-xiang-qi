@@ -4,6 +4,18 @@ using UnityEngine.Events;
 [RequireComponent(typeof(CircleCollider2D))]
 public class SelectableComponent : MonoBehaviour
 {
+    public event UnityAction OnSelected
+    {
+        add => _onSelected.AddListener(value);
+        remove => _onSelected.RemoveListener(value);
+    }
+
+    public event UnityAction OnDeselected
+    {
+        add => _onDeselected.AddListener(value);
+        remove => _onDeselected.RemoveListener(value);
+    }
+
     [field: SerializeField]
     [field: Tooltip("Will only trigger selected when active. Only focusable objects will be set as the current selected when interacted with.")]
     public bool CanBeFocused { get; private set; }
@@ -22,7 +34,7 @@ public class SelectableComponent : MonoBehaviour
         collider.isTrigger = true;
     }
 
-    public void OnSelected()
+    public void OnSelect()
     {
         if (CanBeFocused)
         {
@@ -31,7 +43,7 @@ public class SelectableComponent : MonoBehaviour
         _onSelected?.Invoke();
     }
     
-    public void OnDeselected()
+    public void OnDeselect()
     {
         IsSelected = false;
         _onDeselected?.Invoke();

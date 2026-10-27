@@ -75,6 +75,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 9025739348588171012}
   m_SourcePrefab: {fileID: 100100000, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+--- !u!114 &419855032954545264 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1739055016608831515, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+  m_PrefabInstance: {fileID: 2157719823386082411}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501806459766379075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1feeb946c711e43bd596aae6128518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GridMovement
 --- !u!1 &1501806459766379075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 659425209203158568, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
@@ -174,7 +185,11 @@ MonoBehaviour:
   _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
   _selectableComponent: {fileID: 9141716725416830627}
   _gridRestrictionComponent: {fileID: 2022983279151099374}
+  _gridMovement: {fileID: 419855032954545264}
   _movementType: {fileID: 11400000, guid: 5fe749da67709fe468358accd77bd545, type: 2}
+  _positionSelector:
+    InstancesParent: {fileID: 0}
+    _positionOptionPrefab: {fileID: 8903694132015994187, guid: a734706fa950ec04db4cbabe48b137d7, type: 3}
   _drawDebugOnlySelected: 1
 --- !u!114 &2022983279151099374 stripped
 MonoBehaviour:

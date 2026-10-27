@@ -70,7 +70,7 @@ public class PlayerSelectorComponent : MonoBehaviour, ISelector
 
     private void TriggerSelectable(SelectableComponent selectable)
     {
-        selectable.OnSelected();
+        selectable.OnSelect();
     }
 
     private void TrySetAsFocused(SelectableComponent selectable)
@@ -87,7 +87,7 @@ public class PlayerSelectorComponent : MonoBehaviour, ISelector
         // New selectable, doesnt use Deselect to avoid double invoking OnSelectionChanged
         ClearLastSelection();
         CurrentSelected = selectable;
-        selectable.OnSelected();
+        selectable.OnSelect();
         OnSelectionChanged?.Invoke();
     }
 
@@ -95,7 +95,7 @@ public class PlayerSelectorComponent : MonoBehaviour, ISelector
     {
         if (CurrentSelected != null)
         {
-            CurrentSelected.OnDeselected();
+            CurrentSelected.OnDeselect();
             CurrentSelected = null;
         }
     }

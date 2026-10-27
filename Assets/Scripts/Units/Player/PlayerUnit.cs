@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
+
 public class PlayerUnit : MonoBehaviour
 {
     [SerializeField]
@@ -13,13 +14,23 @@ public class PlayerUnit : MonoBehaviour
     [SerializeField]
     private GridRestrictionComponent _gridRestrictionComponent;
     [SerializeField]
+    private GridMovement _gridMovement;
+    [SerializeField]
     private SO_MovementType _movementType;
+    [SerializeField]
+    private PositionSelector _positionSelector;
 
     [Header("Debug")]
     [SerializeField]
     private bool _drawDebugOnlySelected;
 
     private bool _isActive => _turnNotifier?.TurnManager?.CurrentTurnState == TurnState.Player;
+    private bool _hasMoved = false;
+
+    private void Awake()
+    {
+        _positionSelector.Awake(OnPositionSelected);
+    }
 
     private void OnEnable()
     {
@@ -30,11 +41,29 @@ public class PlayerUnit : MonoBehaviour
         }
 
         ListenForTurnUpdates();
+        _gridMovement.OnMoveCompleted += OnMoveCompleted;
+        _selectableComponent.OnSelected += OnSelected;
+        _selectableComponent.OnDeselected += OnDeselect;
     }
 
     private void OnDisable()
     {
         StopListeningForTurnUpdates();
+        _gridMovement.OnMoveCompleted -= OnMoveCompleted;
+        _selectableComponent.OnSelected -= OnSelected;
+        _selectableComponent.OnDeselected += OnDeselect;
+    }
+
+    public void TryShowMoveOptions()
+    {
+        if (_hasMoved)
+        {
+            return;
+        }
+
+        Vector2[] positions = _movementType.GetMovePositionsAtSteps(transform.position, 1);
+        positions = _gridRestrictionComponent.FilterValidPositions(positions);
+        _positionSelector.ShowOptionsAt(positions);
     }
 
     private void ListenForTurnUpdates()
@@ -55,10 +84,38 @@ public class PlayerUnit : MonoBehaviour
 
     private void OnTurnStart()
     {
+        _hasMoved = false;
         if (_selectableComponent.IsSelected)
         {
-
+            TryShowMoveOptions();
         }
+    }
+
+    private void OnSelected()
+    {
+        TryShowMoveOptions();
+    }
+
+    private void OnDeselect()
+    {
+        _positionSelector.HideAll();
+    }
+
+    private void OnPositionSelected(Vector2 position)
+    {
+        if (_gridMovement.IsMoving || _hasMoved)
+        {
+            return;
+        }
+
+        _hasMoved = true;
+        _gridMovement.MoveTo(position);
+        _positionSelector.HideAll();
+    }
+
+    private void OnMoveCompleted()
+    {
+        
     }
 
     private void OnDrawGizmos()
