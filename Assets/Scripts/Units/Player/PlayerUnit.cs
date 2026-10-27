@@ -56,8 +56,7 @@ public class PlayerUnit : Unit
             return;
         }
 
-        Vector2[] positions = _movementType.GetMovePositionsAtSteps(transform.position, 1);
-        positions = _gridRestrictionComponent.FilterValidPositions(positions);
+        Vector2[] positions = GetPossiblePositions();
         _positionSelector.ShowOptionsAt(positions);
     }
 
