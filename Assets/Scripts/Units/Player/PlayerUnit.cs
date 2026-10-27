@@ -5,7 +5,7 @@ using UnityEditor;
 #endif
 
 
-public class PlayerUnit : MonoBehaviour
+public class PlayerUnit : Unit
 {
     [SerializeField]
     private SO_TurnNotifier _turnNotifier;
@@ -138,11 +138,7 @@ public class PlayerUnit : MonoBehaviour
     {
         if (_movementType)
         {
-            var positions = _movementType.GetMovePositionsAtSteps(transform.position, 1);
-            if (_gridRestrictionComponent)
-            {
-                positions = _gridRestrictionComponent.FilterValidPositions(positions);
-            }
+            var positions = GetPossiblePosisions();
 
             foreach (var position in positions)
             {

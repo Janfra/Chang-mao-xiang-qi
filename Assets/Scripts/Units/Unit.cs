@@ -1,0 +1,19 @@
+using UnityEngine;
+
+public class Unit : MonoBehaviour
+{
+
+    [SerializeField] protected SO_MovementType _movementType;
+    [SerializeField] protected GridRestrictionComponent _gridRestrictionComponent;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    protected Vector2[] GetPossiblePosisions()
+    {
+        var positions = _movementType.GetMovePositionsAtSteps(transform.position, 1);
+        if (_gridRestrictionComponent)
+        {
+            positions = _gridRestrictionComponent.FilterValidPositions(positions);
+        }
+        return positions;
+    }
+}
