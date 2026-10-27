@@ -49,6 +49,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b761b6e927073ac4cb05c583854d657e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _onDied:
+    m_PersistentCalls:
+      m_Calls: []
+  _onTookDamage:
+    m_PersistentCalls:
+      m_Calls: []
   healthConfiguration: {fileID: 11400000, guid: f872fd214ad970548a97413fdf81b3b7, type: 2}
 --- !u!114 &1739055016608831515
 MonoBehaviour:
