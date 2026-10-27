@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b3c9ecbb0d94d4ab2e2eb676152ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectableComponent
+  <CanBeFocused>k__BackingField: 1
   _onSelected:
     m_PersistentCalls:
       m_Calls:

@@ -51,26 +51,43 @@ public class PlayerSelectorComponent : MonoBehaviour, ISelector
     {
         if (selectable != null)
         {
-            if (CurrentSelected == selectable)
+            if (selectable.CanBeFocused)
             {
-                if (_allowDeselectOnRepeatSelect)
-                {
-                    Deselect();
-                }
-                return;
+                TrySetAsFocused(selectable);
             }
-
-            // New selectable, doesnt use Deselect to avoid double invoking OnSelectionChanged
-            ClearLastSelection();
-            CurrentSelected = selectable;
-            selectable.OnSelected();
-            OnSelectionChanged?.Invoke();
+            else
+            {
+                TriggerSelectable(selectable);
+            }
         }
     }
 
     public void Deselect()
     {
         ClearLastSelection();
+        OnSelectionChanged?.Invoke();
+    }
+
+    private void TriggerSelectable(SelectableComponent selectable)
+    {
+        selectable.OnSelected();
+    }
+
+    private void TrySetAsFocused(SelectableComponent selectable)
+    {
+        if (CurrentSelected == selectable)
+        {
+            if (_allowDeselectOnRepeatSelect)
+            {
+                Deselect();
+            }
+            return;
+        }
+
+        // New selectable, doesnt use Deselect to avoid double invoking OnSelectionChanged
+        ClearLastSelection();
+        CurrentSelected = selectable;
+        selectable.OnSelected();
         OnSelectionChanged?.Invoke();
     }
 
