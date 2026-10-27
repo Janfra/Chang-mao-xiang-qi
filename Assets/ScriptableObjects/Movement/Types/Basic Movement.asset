@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c1469e465b30a42be4534fadc0dcb0, type: 3}
   m_Name: Basic Movement
   m_EditorClassIdentifier: Assembly-CSharp::SO_BasicMovement
-  GridSettings: {fileID: 0}
+  GridSettings: {fileID: 11400000, guid: 57c189f388d915141b953076360cbde6, type: 2}

@@ -171,10 +171,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9025739348588171012, guid: 654f3ee02c3e6d449a2d5ea82d116371, type: 3}
-      propertyPath: <MoveSettings>k__BackingField
-      value: 
-      objectReference: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
     - target: {fileID: 9141716725416830627, guid: 654f3ee02c3e6d449a2d5ea82d116371, type: 3}
       propertyPath: _onSelected.m_PersistentCalls.m_Calls.Array.size
       value: 1
