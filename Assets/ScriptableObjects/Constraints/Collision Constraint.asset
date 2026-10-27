@@ -15,4 +15,4 @@ MonoBehaviour:
   _collisionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  _collisionCheckRadius: 1
+  _collisionCheckRadius: 0.5

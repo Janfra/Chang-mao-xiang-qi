@@ -1,5 +1,9 @@
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class PlayerUnit : MonoBehaviour
 {
     [SerializeField]
@@ -8,6 +12,8 @@ public class PlayerUnit : MonoBehaviour
     private SelectableComponent _selectableComponent;
     [SerializeField]
     private GridRestrictionComponent _gridRestrictionComponent;
+    [SerializeField]
+    private SO_MovementType _movementType;
 
     private bool _isActive => _turnNotifier?.TurnManager?.CurrentTurnState == TurnState.Player;
 
@@ -48,6 +54,27 @@ public class PlayerUnit : MonoBehaviour
         if (_selectableComponent.IsSelected)
         {
 
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (_movementType)
+        {
+            var positions = _movementType.GetMovePositionsAtSteps(transform.position, 1);
+            if (_gridRestrictionComponent)
+            {
+                positions = _gridRestrictionComponent.FilterValidPositions(positions);
+            }
+
+            foreach (var position in positions)
+            {
+                Gizmos.DrawSphere(position, 0.5f);
+
+#if UNITY_EDITOR
+                Handles.Label(position, position.ToString());
+#endif
+            }
         }
     }
 }

@@ -171,6 +171,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUnit
   _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
   _selectableComponent: {fileID: 9141716725416830627}
+  _gridRestrictionComponent: {fileID: 2022983279151099374}
+  _movementType: {fileID: 11400000, guid: 5fe749da67709fe468358accd77bd545, type: 2}
+--- !u!114 &2022983279151099374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 135906430521037189, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+  m_PrefabInstance: {fileID: 2157719823386082411}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501806459766379075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1960700dc19b77a4da9325f211bc0d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GridRestrictionComponent
 --- !u!212 &2558618992990720030 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4500161266831682677, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
