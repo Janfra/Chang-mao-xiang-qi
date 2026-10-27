@@ -2,6 +2,9 @@ using UnityEngine;
 
 public static class GridExtensions
 {
+    public const int GridLength = 10;
+    public const int GridWidth = 9;
+
     public static Vector3 SnapToGrid(this Vector3 position, float gridSize)
     {
         return new Vector3(
