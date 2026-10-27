@@ -6,6 +6,7 @@ using System;
 using UnityEditor;
 #endif
 
+[RequireComponent(typeof(SelectableComponent))]
 public class PlayerUnit : Unit
 {
     [SerializeField]
@@ -22,7 +23,7 @@ public class PlayerUnit : Unit
 
     [Header("Debug")]
     [SerializeField]
-    private bool _drawDebugOnlySelected;
+    private bool _drawDebugOnlySelected = true;
 
     public bool IsActive => _turnNotifier?.TurnManager?.CurrentTurnState == TurnState.Player;
     public int MoveCount { get; private set; }
