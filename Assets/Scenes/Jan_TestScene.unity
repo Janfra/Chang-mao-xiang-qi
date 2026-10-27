@@ -171,10 +171,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9025739348588171012, guid: 654f3ee02c3e6d449a2d5ea82d116371, type: 3}
-      propertyPath: _drawDebugOnlySelected
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -226,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSelectorComponent
   _selectableLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   _allowDeselectOnRepeatSelect: 1
   _selectedNotifier: {fileID: 11400000, guid: f3b4640f87ca9a54d87b1220457ac8ed, type: 2}
 --- !u!1 &871446440
@@ -551,7 +547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8549617214234048847, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8549617214234048847, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
       propertyPath: m_LocalPosition.z

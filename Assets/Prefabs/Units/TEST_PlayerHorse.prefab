@@ -174,7 +174,7 @@ MonoBehaviour:
   _selectableComponent: {fileID: 9141716725416830627}
   _gridRestrictionComponent: {fileID: 2022983279151099374}
   _movementType: {fileID: 11400000, guid: 5fe749da67709fe468358accd77bd545, type: 2}
-  _drawDebugOnlySelected: 0
+  _drawDebugOnlySelected: 1
 --- !u!114 &2022983279151099374 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 135906430521037189, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
