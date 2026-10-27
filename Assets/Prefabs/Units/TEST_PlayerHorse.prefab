@@ -182,11 +182,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f83a88e85d845d4bbd708da9fc0c409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUnit
+  _movementType: {fileID: 11400000, guid: 5fe749da67709fe468358accd77bd545, type: 2}
+  _gridRestrictionComponent: {fileID: 2022983279151099374}
+  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
   _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
   _selectableComponent: {fileID: 9141716725416830627}
-  _gridRestrictionComponent: {fileID: 2022983279151099374}
   _gridMovement: {fileID: 419855032954545264}
-  _movementType: {fileID: 11400000, guid: 5fe749da67709fe468358accd77bd545, type: 2}
   _positionSelector:
     InstancesParent: {fileID: 0}
     _positionOptionPrefab: {fileID: 8903694132015994187, guid: a734706fa950ec04db4cbabe48b137d7, type: 3}
