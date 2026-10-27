@@ -56,8 +56,7 @@ public class EnemyManager : MonoBehaviour
     public void DoTurn()
     {
 
-        Vector3 kingPos;
-        kingPos = KingSingleton.Instance.GetKingPos();
+        
         CreateNewEnemy();
         List_through = 0;
         _enemies[List_through].GetComponent<GridMovement>().MoveTo(_enemies[List_through].GetComponent<EnemyUnit>().GetBestMove());
