@@ -6,6 +6,11 @@ public class EnemyUnit : Unit
     
     [SerializeField] private Vector2 KingPos;
 
+
+    public void Awake()
+    {
+        KingPos = new Vector2(0, -2);
+    }
     public Vector2 GetBestMove()
     {
         var positions =  GetPossiblePosisions();
