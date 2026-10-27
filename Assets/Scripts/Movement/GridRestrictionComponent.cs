@@ -21,4 +21,13 @@ public class GridRestrictionComponent : MonoBehaviour
         }
         return positions;
     }
+
+    public Vector2[] FilterValidPositions(Vector2[] positions)
+    {
+        foreach (var constraint in Constraints)
+        {
+            positions = System.Array.FindAll(positions, pos => constraint.IsPositionValid(transform, pos, GridSettings));
+        }
+        return positions;
+    }
 }
