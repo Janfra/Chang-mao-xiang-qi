@@ -1,13 +1,27 @@
 using UnityEngine;
 
-public class Unit : MonoBehaviour
+public abstract class Unit : MonoBehaviour
 {
-
     [SerializeField] protected SO_MovementType _movementType;
     [SerializeField] protected GridRestrictionComponent _gridRestrictionComponent;
     
     [field: SerializeField]
-    public SO_MovementSettings MoveSettings { get; private set; } 
+    public HealthComponent HealthComponent { get; private set; }
+    
+    [field: SerializeField]
+    public SO_MovementSettings MoveSettings { get; private set; }
+
+    public bool IsDead => HealthComponent.Health.IsDead;
+
+    protected virtual void Start()
+    {
+        HealthComponent.Health.OnDied += OnDie;
+    }
+
+    private void OnDestroy()
+    {
+        HealthComponent.Health.OnDied -= OnDie;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected Vector2[] GetPossiblePositions()
@@ -19,4 +33,6 @@ public class Unit : MonoBehaviour
         }
         return positions;
     }
+
+    protected abstract void OnDie();
 }

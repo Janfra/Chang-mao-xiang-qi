@@ -385,6 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUnit
   _movementType: {fileID: 11400000, guid: 59e825078e1dae34a839429b49847bc0, type: 2}
   _gridRestrictionComponent: {fileID: 2022983279151099374}
+  <HealthComponent>k__BackingField: {fileID: 6515116924502854898}
   <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
   _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
   <SelectableComponent>k__BackingField: {fileID: 8629344936793130084}
@@ -406,6 +407,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1960700dc19b77a4da9325f211bc0d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridRestrictionComponent
+--- !u!114 &6515116924502854898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5159888137804984473, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+  m_PrefabInstance: {fileID: 2157719823386082411}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501806459766379075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b761b6e927073ac4cb05c583854d657e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
 --- !u!4 &7734814925775881508 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8549617214234048847, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}

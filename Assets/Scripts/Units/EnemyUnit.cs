@@ -1,7 +1,6 @@
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class EnemyUnit : Unit
@@ -10,6 +9,7 @@ public class EnemyUnit : Unit
     public event UnityAction OnEndIndividulTurn;
 
     [SerializeField] private Attack _attack;
+    private GridMovement _gridMovement;
 
     public Vector2 GetBestMove()
     {
@@ -36,44 +36,54 @@ public class EnemyUnit : Unit
     private bool TryAttack()
     {
         var options = _attack.GetValidAttackOptions();
-        if (options.Length == 0 ) return false;
+        if (options.Length == 0)
+        {
+            return false;
+        }
         else
         {
-            Debug.Log("attack");
-            _attack.DealDamageAt(options[Random.Range(0,options.Length)].Position);
-            endturn();
+            _attack.DealDamageAt(options[Random.Range(0, options.Length)].Position);
             return true;
         }
-        
     }
 
-    protected virtual void Awake()
+    protected void Awake()
     {
         _attack.Source = transform;
+        _gridMovement = GetComponent<GridMovement>();
     }
 
-    public void Start()
+    protected override void Start()
     {
-        GetComponent<GridMovement>().OnMoveCompleted += endturn;
-
+        base.Start();
     }
 
-    public void Die()
+    protected override void OnDie()
     {
-        EnemyManager.Instance.removeEnemy(gameObject);
-        gameObject.SetActive(false);
+        EnemyManager.Instance.removeEnemy(this);
+        Destroy(gameObject);
     }
 
     public void Taketurn()
     {
-
-        if (TryAttack() == false){ GetComponent<GridMovement>().MoveTo(GetBestMove()); }
-
-
+        if (!TryAttack())
+        {
+            _gridMovement.OnMoveCompleted += ClearAndEndTurn;
+            _gridMovement.MoveTo(GetBestMove());
+        }
+        else
+        {
+            EndTurn();
+        }
     }
 
+    private void ClearAndEndTurn()
+    {
+        _gridMovement.OnMoveCompleted -= ClearAndEndTurn;
+        EndTurn();
+    }
 
-    private void endturn()
+    private void EndTurn()
     {
         OnEndIndividulTurn.Invoke();
     }

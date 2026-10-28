@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Events;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -60,13 +62,18 @@ public class PlayerUnit : Unit
 
     public virtual void TryShowMoveOptions()
     {
-        if (!IsActive)
+        if (!IsActive || IsDead)
         {
             return;
         }
 
         Vector2[] positions = GetPossiblePositions();
         _positionSelector.ShowOptionsAt(positions);
+    }
+
+    protected override void OnDie()
+    {
+        // For player there is no need for special die logic yet other than blocking moves on dead
     }
 
     private void ListenForTurnUpdates()
@@ -91,6 +98,12 @@ public class PlayerUnit : Unit
     protected virtual void OnTurnStart()
     {
         HidePositionSelections();
+
+        if (IsDead)
+        {
+            return;
+        }
+
         MoveCount = 0;
         if (SelectableComponent.IsSelected)
         {
@@ -105,7 +118,7 @@ public class PlayerUnit : Unit
 
     protected virtual void OnSelect()
     {
-        if (!IsActive)
+        if (!IsActive || IsDead)
         {
             return;
         }

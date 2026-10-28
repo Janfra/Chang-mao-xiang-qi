@@ -60,7 +60,7 @@ public class Attack
         var collider = Physics2D.OverlapCircle(position, _attackRadius, _attackMask.value);
         if (collider)
         {
-            if (collider.TryGetComponent(out HealthComponent health))
+            if (collider.TryGetComponent(out HealthComponent health) && !health.Health.IsDead)
             {
                 result = new AttackResult(position, health);
                 return true;

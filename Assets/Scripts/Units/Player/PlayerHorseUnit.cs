@@ -10,6 +10,7 @@ public class PlayerHorseUnit : PlayerUnit
 
     private bool _hasMoved => MoveCount > 0;
     private bool _hasAttacked = false;
+    private bool _canRevive = false;
 
     protected override void Awake()
     {
@@ -19,7 +20,7 @@ public class PlayerHorseUnit : PlayerUnit
 
     public override void TryShowMoveOptions()
     {
-        if (_hasMoved && _hasAttacked)
+        if (_hasMoved && _hasAttacked || IsDead)
         {
             return;
         }
@@ -29,13 +30,28 @@ public class PlayerHorseUnit : PlayerUnit
 
     protected override void OnTurnStart()
     {
+        if (_canRevive)
+        {
+            HealthComponent.Health.Reset(); // Revive the horse after losing a turn being dead
+            _canRevive = false;
+        }
+
         base.OnTurnStart();
         _hasAttacked = false;
     }
 
+    protected override void OnTurnEnd()
+    {
+        base.OnTurnEnd();
+        if (IsDead)
+        {
+            _canRevive = true;
+        }
+    }
+
     protected override void OnSelect()
     {
-        if (!IsActive)
+        if (!IsActive || IsDead)
         {
             return;
         }
@@ -52,7 +68,7 @@ public class PlayerHorseUnit : PlayerUnit
 
     protected override void OnPositionSelect(Vector2 position)
     {
-        if (_hasMoved && _hasAttacked || !IsActive)
+        if (_hasMoved && _hasAttacked || !IsActive || IsDead)
         {
             HidePositionSelections();
             return;

@@ -8,6 +8,8 @@ public class HealthComponent : MonoBehaviour
     private UnityEvent _onDied;
     [SerializeField]
     private UnityEvent _onTookDamage;
+    [SerializeField]
+    private UnityEvent _onReset;
 
     [SerializeField]
     private SO_Health healthConfiguration;
@@ -23,12 +25,14 @@ public class HealthComponent : MonoBehaviour
     {
         Health.OnDied += _onDied.Invoke;
         Health.OnDamaged += _onTookDamage.Invoke;
+        Health.OnReset += _onReset.Invoke;
     }
 
     private void OnDisable()
     {
         Health.OnDied -= _onDied.Invoke;
         Health.OnDamaged += _onTookDamage.Invoke;
+        Health.OnReset -= _onReset.Invoke;
     }
 }
 
@@ -38,6 +42,7 @@ public class Health
     public event UnityAction OnDied;
     public event UnityAction OnDamaged;
     public event UnityAction OnHealed;
+    public event UnityAction OnReset;
 
     public int CurrentHealth { get; private set; }
     public int MaxHealth { get; private set; }
@@ -88,5 +93,6 @@ public class Health
     public void Reset()
     {
         CurrentHealth = MaxHealth;
+        OnReset?.Invoke();
     }
 }

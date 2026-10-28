@@ -51,20 +51,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
   _onDied:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -7123711609832147273}
-        m_TargetAssemblyTypeName: EnemyUnit, Assembly-CSharp
-        m_MethodName: Die
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _onTookDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  _onReset:
     m_PersistentCalls:
       m_Calls: []
   healthConfiguration: {fileID: 11400000, guid: f872fd214ad970548a97413fdf81b3b7, type: 2}
@@ -147,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   _movementType: {fileID: 11400000, guid: 6fb5fdf001e2e2041ba9e609f770059e, type: 2}
   _gridRestrictionComponent: {fileID: 135906430521037189}
+  <HealthComponent>k__BackingField: {fileID: 5159888137804984473}
   <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
   KingPos: {x: 0, y: -2}
   _attack:
