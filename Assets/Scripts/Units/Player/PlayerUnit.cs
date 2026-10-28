@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -9,6 +8,8 @@ using UnityEditor;
 [RequireComponent(typeof(SelectableComponent))]
 public class PlayerUnit : Unit
 {
+    public event UnityAction OnReadyForTurnEnd;
+
     [SerializeField]
     private SO_TurnNotifier _turnNotifier;
 
@@ -28,8 +29,14 @@ public class PlayerUnit : Unit
     [SerializeField]
     private bool _drawDebugOnlySelected = true;
 
-    public bool IsActive => _turnNotifier?.TurnManager?.CurrentTurnState == TurnState.Player;
     public int MoveCount { get; private set; }
+    public bool IsActive => _turnNotifier?.TurnManager?.CurrentTurnState == TurnState.Player;
+    public bool IsReadyForTurnEnd { 
+        get => _isReadyForTurnEnd; 
+        protected set => SetReadyForTurnEnd(value); 
+    }
+
+    private bool _isReadyForTurnEnd = true;
 
     protected virtual void Awake()
     {
@@ -154,6 +161,7 @@ public class PlayerUnit : Unit
             return;
         }
 
+        IsReadyForTurnEnd = false;
         _gridMovement.MoveTo(position);
         MoveCount++;
         _positionSelector.HideAll();
@@ -161,7 +169,16 @@ public class PlayerUnit : Unit
 
     protected virtual void OnMoveComplete()
     {
-        
+        IsReadyForTurnEnd = true;
+    }
+
+    private void SetReadyForTurnEnd(bool isReady)
+    {
+        _isReadyForTurnEnd = isReady;
+        if (_isReadyForTurnEnd)
+        {
+            OnReadyForTurnEnd?.Invoke();
+        }
     }
 
     private void OnDrawGizmos()

@@ -88,6 +88,7 @@ public class PlayerHorseUnit : PlayerUnit
 
     protected override void OnMoveComplete()
     {
+        base.OnMoveComplete();
         ShowAttackOptions();
     }
 

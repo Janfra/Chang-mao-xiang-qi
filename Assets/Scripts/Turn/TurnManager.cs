@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +9,9 @@ public class TurnManager : MonoBehaviour, ITurnManager
     private SO_TurnNotifier _turnNotifier;
     [SerializeField]
     private TurnHandler _turnState;
+    [SerializeField]
+    private SO_PlayerUnitRegistry _playerUnitRegistry;
+    private bool _isQueuedForEndingTurn;
 
     [Header("Debug")]
     [SerializeField]
@@ -43,14 +47,46 @@ public class TurnManager : MonoBehaviour, ITurnManager
     [ContextMenu("Request End Player Turn")]
     public void RequestEndPlayerTurn()
     {
-        // Add some logic for waiting to end turn after actions are completed, if needed
-        _turnState.TryEndPlayerTurn();
+        if (_isQueuedForEndingTurn)
+        {
+            return;
+        }
+
+        if (!ArePlayerUnitsReadyForTurnEnd())
+        {
+            StartCoroutine(TryEndTurnAfterUnitsAreReady());
+        }
+        else
+        {
+            _turnState.TryEndPlayerTurn();
+        }
     }
 
     [ContextMenu("Request End Enemy Turn")]
     public void RequestEndEnemyTurn()
     {
         _turnState.TryEndEnemyTurn();
+    }
+
+    private bool ArePlayerUnitsReadyForTurnEnd()
+    {
+        foreach (var unit in _playerUnitRegistry.PlayerUnits)
+        {
+            if (!unit.IsReadyForTurnEnd)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private IEnumerator TryEndTurnAfterUnitsAreReady()
+    {
+        _isQueuedForEndingTurn = true;
+        yield return new WaitUntil(ArePlayerUnitsReadyForTurnEnd);
+        _isQueuedForEndingTurn = false;
+        _turnState.TryEndPlayerTurn();
     }
 }
 
