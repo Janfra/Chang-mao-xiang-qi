@@ -36,7 +36,10 @@ public class EnemyManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        SO_turn.TurnManager.OnEnemyTurn -= DoTurn;
+        if (SO_turn.TurnManager != null)
+        {
+            SO_turn.TurnManager.OnEnemyTurn -= DoTurn;
+        }
     }
 
 
