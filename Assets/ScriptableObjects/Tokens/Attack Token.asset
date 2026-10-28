@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Attack Token
   m_EditorClassIdentifier: Assembly-CSharp::SO_Token
   Icon: {fileID: -609566625328722764, guid: 9e0b9858b08e37848bc0df9c6b990e9b, type: 3}
-  Background: {r: 1, g: 1, b: 1, a: 0.5882353}
+  Background: {r: 0, g: 0, b: 0, a: 0.5882353}
