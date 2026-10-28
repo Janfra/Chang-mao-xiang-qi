@@ -90,6 +90,7 @@ public class PlayerUnit : Unit
 
     protected virtual void OnTurnStart()
     {
+        HidePositionSelections();
         MoveCount = 0;
         if (SelectableComponent.IsSelected)
         {

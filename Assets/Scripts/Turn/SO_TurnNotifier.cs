@@ -17,6 +17,22 @@ public class SO_TurnNotifier : ScriptableObject
         OnManagerSet = null;
     }
 
+    public void RequestEndPlayerTurn()
+    {
+        if (TurnManager != null)
+        {
+            TurnManager.RequestEndPlayerTurn();
+        }
+    }
+
+    public void RequestEndEnemyTurn()
+    {
+        if (TurnManager != null)
+        {
+            TurnManager.RequestEndEnemyTurn();
+        }
+    }
+
     public void AssignManager(ITurnManager turnManager)
     {
         TurnManager = turnManager;
