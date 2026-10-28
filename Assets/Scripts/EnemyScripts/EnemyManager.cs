@@ -53,8 +53,8 @@ public class EnemyManager : MonoBehaviour
 
     public void removeEnemy(GameObject toRemove)
     {
-        
-        _enemies.Find(x => x.name == toRemove.name).GetComponent<EnemyUnit>().OnEndIndividulTurn -= TakeEachTurn;
+
+        toRemove.GetComponent<EnemyUnit>().OnEndIndividulTurn -= TakeEachTurn;
         _enemies.Remove(toRemove);
     }
     
