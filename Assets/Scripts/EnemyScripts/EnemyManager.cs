@@ -63,9 +63,18 @@ public class EnemyManager : MonoBehaviour
     {
 
         
+
+
+
         CreateNewEnemy();
         List_through = 0;
         TakeEachTurn();
+
+
+
+
+
+
 
 
 

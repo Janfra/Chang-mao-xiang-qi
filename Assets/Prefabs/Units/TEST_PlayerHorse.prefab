@@ -147,7 +147,7 @@ MonoBehaviour:
   _attack:
     Source: {fileID: 0}
     _attackMove: {fileID: 11400000, guid: 6fb5fdf001e2e2041ba9e609f770059e, type: 2}
-    _attackRange: 2
+    _attackRange: 3
     _attackRadius: 0.4
     _attackMask:
       serializedVersion: 2

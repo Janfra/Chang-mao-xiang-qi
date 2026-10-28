@@ -54,9 +54,14 @@ public class EnemyUnit : Unit
 
     public void Start()
     {
-        
         GetComponent<GridMovement>().OnMoveCompleted += endturn;
 
+    }
+
+    public void Die()
+    {
+        EnemyManager.Instance.removeEnemy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public void Taketurn()
