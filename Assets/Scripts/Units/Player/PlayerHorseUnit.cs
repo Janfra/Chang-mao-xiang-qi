@@ -5,6 +5,9 @@ public class PlayerHorseUnit : PlayerUnit
     [SerializeField]
     private Attack _attack;
 
+    [SerializeField]
+    private SO_Token _attackToken;
+
     private bool _hasMoved => MoveCount > 0;
     private bool _hasAttacked = false;
 
@@ -81,6 +84,6 @@ public class PlayerHorseUnit : PlayerUnit
             attackPositions[i] = options[i].Position;
         }
 
-        ShowPositionSelections(attackPositions);
+        ShowPositionSelections(attackPositions, _attackToken);
     }
 }

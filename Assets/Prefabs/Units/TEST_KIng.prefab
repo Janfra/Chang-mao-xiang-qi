@@ -391,6 +391,7 @@ MonoBehaviour:
   _gridMovement: {fileID: 419855032954545264}
   _positionSelector:
     InstancesParent: {fileID: 0}
+    _defaultToken: {fileID: 11400000, guid: 91575e6ecdf985644a824adc88ad4a62, type: 2}
     _positionOptionPrefab: {fileID: 8903694132015994187, guid: a734706fa950ec04db4cbabe48b137d7, type: 3}
   _unitRegistry: {fileID: 11400000, guid: 7c0caf447491f244e899a893737660b1, type: 2}
   _drawDebugOnlySelected: 1

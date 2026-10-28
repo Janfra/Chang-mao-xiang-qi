@@ -140,6 +140,7 @@ MonoBehaviour:
   _gridMovement: {fileID: 8539532636358975840}
   _positionSelector:
     InstancesParent: {fileID: 0}
+    _defaultToken: {fileID: 11400000, guid: 91575e6ecdf985644a824adc88ad4a62, type: 2}
     _positionOptionPrefab: {fileID: 8903694132015994187, guid: a734706fa950ec04db4cbabe48b137d7, type: 3}
   _unitRegistry: {fileID: 11400000, guid: 7c0caf447491f244e899a893737660b1, type: 2}
   _drawDebugOnlySelected: 1
@@ -152,6 +153,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 7
     _damage: 1
+  _attackToken: {fileID: 11400000, guid: 09827dcae22118c42a574fde30851a2d, type: 2}
 --- !u!114 &7007678779616137299
 MonoBehaviour:
   m_ObjectHideFlags: 0
