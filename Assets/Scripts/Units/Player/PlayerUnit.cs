@@ -122,10 +122,10 @@ public class PlayerUnit : Unit
         _positionSelector.HideAll();
     }
 
-    protected void ShowPositionSelections(Vector2[] positions)
+    protected void ShowPositionSelections(Vector2[] positions, SO_Token token = null)
     {
         _positionSelector.HideAll();
-        _positionSelector.ShowOptionsAt(positions);
+        _positionSelector.ShowOptionsAt(positions, token);
     }
 
     protected void HidePositionSelections()

@@ -11,6 +11,9 @@ public class PositionSelector
     public Transform InstancesParent;
 
     [SerializeField]
+    private SO_Token _defaultToken;
+
+    [SerializeField]
     private PositionOptionComponent _positionOptionPrefab;
 
     private ObjectPool<PositionOptionComponent> _instances;
@@ -50,11 +53,17 @@ public class PositionSelector
         return instance;
     }
 
-    public void ShowOptionsAt(Vector2[] positions)
+    public void ShowOptionsAt(Vector2[] positions, SO_Token token = null)
     {
+        if (token == null)
+        {
+            token = _defaultToken;
+        }
+
         foreach (var position in positions)
         {
             var component = _instances.Get();
+            component.TokenRenderer.SetToken(token);
             component.transform.position = position;
             _shown.Add(component);
         }

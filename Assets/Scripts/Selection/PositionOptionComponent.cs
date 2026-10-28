@@ -6,6 +6,9 @@ public class PositionOptionComponent : MonoBehaviour
 {
     public event UnityAction<Vector2> OnPositionSelected;
 
+    [field: SerializeField]
+    public TokenRenderer TokenRenderer { get; private set; }
+
     public bool IsAutoReleased = true;
     public UnityAction<PositionOptionComponent> OnReleased;
 
