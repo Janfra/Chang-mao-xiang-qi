@@ -385,10 +385,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUnit
   _movementType: {fileID: 11400000, guid: 59e825078e1dae34a839429b49847bc0, type: 2}
   _gridRestrictionComponent: {fileID: 2022983279151099374}
+  <UnitUIIcon>k__BackingField: {fileID: -2469705209961498790, guid: c18f2b19a4fe6e246b0154e31127409b, type: 3}
   <HealthComponent>k__BackingField: {fileID: 6515116924502854898}
   <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
   _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
   <SelectableComponent>k__BackingField: {fileID: 8629344936793130084}
+  <MoveActionDescription>k__BackingField: {fileID: 11400000, guid: 9e9897f55f1210243ac42b108770607c, type: 2}
   _gridMovement: {fileID: 419855032954545264}
   _positionSelector:
     InstancesParent: {fileID: 0}

@@ -5,6 +5,9 @@ public abstract class Unit : MonoBehaviour
     [SerializeField] protected SO_MovementType _movementType;
     [SerializeField] protected GridRestrictionComponent _gridRestrictionComponent;
     
+    [field: SerializeField] 
+    public Sprite UnitUIIcon { get; private set; }
+
     [field: SerializeField]
     public HealthComponent HealthComponent { get; private set; }
     

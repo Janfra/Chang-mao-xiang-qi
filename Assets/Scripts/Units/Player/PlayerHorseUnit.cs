@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerHorseUnit : PlayerUnit
@@ -7,6 +9,8 @@ public class PlayerHorseUnit : PlayerUnit
 
     [SerializeField]
     private SO_Token _attackToken;
+    [SerializeField]
+    private SO_PlayerActionDescription _attackActionDescription;
 
     private bool _hasMoved => MoveCount > 0;
     private bool _hasAttacked = false;
@@ -16,6 +20,12 @@ public class PlayerHorseUnit : PlayerUnit
     {
         base.Awake();
         _attack.Source = transform;
+        _attack.OnCacheTargetLost += UpdateActiveAction;
+    }
+
+    private void OnDestroy()
+    {
+        _attack.OnDestroy();
     }
 
     public override void TryShowMoveOptions()
@@ -43,6 +53,9 @@ public class PlayerHorseUnit : PlayerUnit
     protected override void OnTurnEnd()
     {
         base.OnTurnEnd();
+
+        _attack.ClearCacheValidAttackResults();
+
         if (IsDead)
         {
             _canRevive = true;
@@ -62,7 +75,7 @@ public class PlayerHorseUnit : PlayerUnit
         }
         else if (!_hasAttacked)
         {
-            ShowAttackOptions();
+            ShowAttackOptions(_attack.CachedAttackResults.ToArray());
         }
     }
 
@@ -76,10 +89,21 @@ public class PlayerHorseUnit : PlayerUnit
 
         if (!_hasMoved)
         {
-            base.OnPositionSelect(position);
+            if (TryMoveTo(position))
+            {
+                if (_attack.HasValidAttackOptionsAt(position))
+                {
+                    AvailablePlayerAction = _attackActionDescription;
+                }
+                else
+                {
+                    AvailablePlayerAction = null;
+                }
+            }
         }
         else
         {
+            AvailablePlayerAction = null;
             _hasAttacked = true;
             HidePositionSelections();
             _attack.DealDamageAt(position);
@@ -89,18 +113,34 @@ public class PlayerHorseUnit : PlayerUnit
     protected override void OnMoveComplete()
     {
         base.OnMoveComplete();
-        ShowAttackOptions();
+        var options = _attack.GetValidAttackOptions();
+        ShowAttackOptions(options);
     }
 
-    private void ShowAttackOptions()
+    private void ShowAttackOptions(AttackResult[] attackOptions)
     {
-        var options = _attack.GetValidAttackOptions();
-        Vector2[] attackPositions = new Vector2[options.Length];
+        if (attackOptions == null)
+        {
+            return;
+        }
+
+        Vector2[] attackPositions = new Vector2[attackOptions.Length];
         for (int i = 0; i < attackPositions.Length; i++)
         {
-            attackPositions[i] = options[i].Position;
+            attackPositions[i] = attackOptions[i].Position;
         }
 
         ShowPositionSelections(attackPositions, _attackToken);
+    }
+
+    private void UpdateActiveAction()
+    {
+        if (AvailablePlayerAction == _attackActionDescription)
+        {
+            if (_attack.CachedAttackResults.Count == 0)
+            {
+                AvailablePlayerAction = null;
+            }
+        }
     }
 }

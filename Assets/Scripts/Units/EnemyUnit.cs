@@ -13,6 +13,11 @@ public class EnemyUnit : Unit
 
     private GridMovement _gridMovement;
 
+    private void OnDestroy()
+    {
+        _attack.OnDestroy();
+    }
+
     public Vector2 GetBestMove()
     {
         var positions = GetPossiblePositions();

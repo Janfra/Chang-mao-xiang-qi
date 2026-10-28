@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sketch1793032790348_0
+      name: MoveMark
       rect:
         serializedVersion: 2
         x: 1402
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sketch1793032790348_0: 2253296848329431355
+      MoveMark: 2253296848329431355
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

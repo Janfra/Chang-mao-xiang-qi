@@ -9,12 +9,16 @@ using UnityEditor;
 public class PlayerUnit : Unit
 {
     public event UnityAction OnReadyForTurnEnd;
+    public event UnityAction<PlayerUnit> OnAvailableActionUpdated;
 
     [SerializeField]
     private SO_TurnNotifier _turnNotifier;
 
     [field: SerializeField]
     public SelectableComponent SelectableComponent { get; private set; }
+
+    [field: SerializeField]
+    public SO_PlayerActionDescription MoveActionDescription { get; private set; }
 
     [SerializeField]
     private GridMovement _gridMovement;
@@ -25,11 +29,13 @@ public class PlayerUnit : Unit
     [SerializeField]
     private SO_PlayerUnitRegistry _unitRegistry;
 
+
     [Header("Debug")]
     [SerializeField]
     private bool _drawDebugOnlySelected = true;
 
     public int MoveCount { get; private set; }
+    public SO_PlayerActionDescription AvailablePlayerAction { get => _availablePlayerAction; protected set => UpdateAvailablePlayerAction(value); }
     public bool IsActive => _turnNotifier?.TurnManager?.CurrentTurnState == TurnState.Player;
     public bool IsReadyForTurnEnd { 
         get => _isReadyForTurnEnd; 
@@ -37,10 +43,12 @@ public class PlayerUnit : Unit
     }
 
     private bool _isReadyForTurnEnd = true;
+    private SO_PlayerActionDescription _availablePlayerAction;
 
     protected virtual void Awake()
     {
         _positionSelector.Awake(OnPositionSelect);
+        AvailablePlayerAction = MoveActionDescription;
     }
 
     protected virtual void OnEnable()
@@ -108,10 +116,12 @@ public class PlayerUnit : Unit
 
         if (IsDead)
         {
+            AvailablePlayerAction = null;
             return;
         }
 
         MoveCount = 0;
+        AvailablePlayerAction = MoveActionDescription;
         if (SelectableComponent.IsSelected)
         {
             TryShowMoveOptions();
@@ -154,22 +164,47 @@ public class PlayerUnit : Unit
         _positionSelector.HideAll();
     }
 
+    protected bool TryMoveTo(Vector2 position)
+    {
+        if (_gridMovement.IsMoving)
+        {
+            return false;
+        }
+
+        MoveCount++;
+        IsReadyForTurnEnd = false;
+        _gridMovement.MoveTo(position);
+        _positionSelector.HideAll();
+        return true;
+    }
+
     protected virtual void OnPositionSelect(Vector2 position)
     {
-        if (_gridMovement.IsMoving || MoveCount > 0)
+        if (MoveCount > 0)
         {
             return;
         }
 
-        IsReadyForTurnEnd = false;
-        _gridMovement.MoveTo(position);
-        MoveCount++;
-        _positionSelector.HideAll();
+        if (TryMoveTo(position))
+        {
+            AvailablePlayerAction = null;
+        }
     }
 
     protected virtual void OnMoveComplete()
     {
         IsReadyForTurnEnd = true;
+    }
+
+    private void UpdateAvailablePlayerAction(SO_PlayerActionDescription description)
+    {
+        if (_availablePlayerAction == description)
+        {
+            return;
+        }
+
+        _availablePlayerAction = description;
+        OnAvailableActionUpdated?.Invoke(this);
     }
 
     private void SetReadyForTurnEnd(bool isReady)

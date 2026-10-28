@@ -255,10 +255,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHorseUnit
   _movementType: {fileID: 11400000, guid: 5fe749da67709fe468358accd77bd545, type: 2}
   _gridRestrictionComponent: {fileID: 8016979973270759678}
+  <UnitUIIcon>k__BackingField: {fileID: -8762734513084780091, guid: 7b2a4bc34a09ade4d8f2f93f259756a8, type: 3}
   <HealthComponent>k__BackingField: {fileID: 2971043208940915170}
   <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
   _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
   <SelectableComponent>k__BackingField: {fileID: 7007678779616137299}
+  <MoveActionDescription>k__BackingField: {fileID: 11400000, guid: 9e9897f55f1210243ac42b108770607c, type: 2}
   _gridMovement: {fileID: 8539532636358975840}
   _positionSelector:
     InstancesParent: {fileID: 0}
@@ -276,6 +278,7 @@ MonoBehaviour:
       m_Bits: 7
     _damage: 1
   _attackToken: {fileID: 11400000, guid: 09827dcae22118c42a574fde30851a2d, type: 2}
+  _attackActionDescription: {fileID: 11400000, guid: 49b5a6c34c9a7f841aa108cad280080e, type: 2}
 --- !u!114 &7007678779616137299
 MonoBehaviour:
   m_ObjectHideFlags: 0
