@@ -9,6 +9,8 @@ public class EnemyUnit : Unit
     public event UnityAction OnEndIndividulTurn;
 
     [SerializeField] private Attack _attack;
+    [SerializeField] private AnimationClip _deathClip;
+
     private GridMovement _gridMovement;
 
     public Vector2 GetBestMove()
@@ -61,7 +63,7 @@ public class EnemyUnit : Unit
     protected override void OnDie()
     {
         EnemyManager.Instance.removeEnemy(this);
-        Destroy(gameObject);
+        Destroy(gameObject, _deathClip ? _deathClip.length + 0.01f : 0.0f);
     }
 
     public void Taketurn()
