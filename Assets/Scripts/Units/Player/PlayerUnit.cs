@@ -82,6 +82,11 @@ public class PlayerUnit : Unit
             return;
         }
 
+        if (MoveCount > 0)
+        {
+            return;
+        }
+
         Vector2[] positions = GetPossiblePositions();
         _positionSelector.ShowOptionsAt(positions);
     }
