@@ -31,6 +31,11 @@ public class PlayerSelectorComponent : MonoBehaviour, ISelector
         }
     }
 
+    public void RequestSelection(SelectableComponent selectable)
+    {
+        TrySelect(selectable);
+    }
+
     public void TrySelectAtMousePosition()
     {
         var mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
