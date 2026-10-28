@@ -132,10 +132,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a960eaf6e6dc5347b249f598e9cffe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
-  _movementType: {fileID: 11400000, guid: 59e825078e1dae34a839429b49847bc0, type: 2}
+  _movementType: {fileID: 11400000, guid: 6fb5fdf001e2e2041ba9e609f770059e, type: 2}
   _gridRestrictionComponent: {fileID: 135906430521037189}
   <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
   KingPos: {x: 0, y: -2}
+  _attack:
+    Source: {fileID: 0}
+    _attackMove: {fileID: 11400000, guid: 6fb5fdf001e2e2041ba9e609f770059e, type: 2}
+    _attackRange: 1
+    _attackRadius: 0.4
+    _attackMask:
+      serializedVersion: 2
+      m_Bits: 0
+    _damage: 1
 --- !u!1 &2993002618950630699
 GameObject:
   m_ObjectHideFlags: 0

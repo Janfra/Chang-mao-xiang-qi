@@ -47,13 +47,14 @@ public class EnemyManager : MonoBehaviour
 
     private void CreateNewEnemy()
     {
-        _enemies.Add(Instantiate(enemyPrefab, new Vector3(Random.Range(-4,5), 6, 0), Quaternion.identity));
-        _enemies[_enemies.Count - 1].GetComponent<GridMovement>().OnMoveCompleted += MoveEach;
+        _enemies.Add(Instantiate(enemyPrefab, new Vector3(Random.Range(-4,5), 7, 0), Quaternion.identity));
+        _enemies[_enemies.Count - 1].GetComponent<EnemyUnit>().OnEndIndividulTurn += TakeEachTurn;
     }
 
     public void removeEnemy(GameObject toRemove)
     {
         _enemies.Remove(toRemove);
+        _enemies[_enemies.Count - 1].GetComponent<EnemyUnit>().OnEndIndividulTurn -= TakeEachTurn;
     }
     
 
@@ -63,28 +64,28 @@ public class EnemyManager : MonoBehaviour
         
         CreateNewEnemy();
         List_through = 0;
-        _enemies[List_through].GetComponent<GridMovement>().MoveTo(_enemies[List_through].GetComponent<EnemyUnit>().GetBestMove());
-        
-        
+        TakeEachTurn();
 
-        
 
-        
+
+
+
+
     }
 
-    private void MoveEach()
+    private void TakeEachTurn()
     {
-        List_through++;
+        
 
-        if (List_through == _enemies.Count)
+        if (List_through == _enemies.Count )
         {
             SO_turn.TurnManager.RequestEndEnemyTurn();
         }
         else
         {
-            _enemies[List_through].GetComponent<GridMovement>().MoveTo(_enemies[List_through].GetComponent<EnemyUnit>().GetBestMove());
+            _enemies[List_through].GetComponent<EnemyUnit>().Taketurn();
         }
-        
+        List_through++;
     }
 
 }

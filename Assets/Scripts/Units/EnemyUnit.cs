@@ -1,10 +1,15 @@
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class EnemyUnit : Unit
 {
     [SerializeField] private Vector2 KingPos;
+    public event UnityAction OnEndIndividulTurn;
+
+    [SerializeField] private Attack _attack;
 
     public Vector2 GetBestMove()
     {
@@ -26,5 +31,45 @@ public class EnemyUnit : Unit
         if (BestPos == new Vector2(0, 9999)) return transform.position;
         else return BestPos;
 
+    }
+
+    private bool TryAttack()
+    {
+        var options = _attack.GetValidAttackOptions();
+        if (options.Length == 0 ) return false;
+        else
+        {
+            Debug.Log("attack");
+            _attack.DealDamageAt(options[Random.Range(0,options.Length)].Position);
+            endturn();
+            return true;
+        }
+        
+    }
+
+    protected virtual void Awake()
+    {
+        _attack.Source = transform;
+    }
+
+    public void Start()
+    {
+        
+        GetComponent<GridMovement>().OnMoveCompleted += endturn;
+
+    }
+
+    public void Taketurn()
+    {
+
+        if (TryAttack() == false){ GetComponent<GridMovement>().MoveTo(GetBestMove()); }
+
+
+    }
+
+
+    private void endturn()
+    {
+        OnEndIndividulTurn.Invoke();
     }
 }
