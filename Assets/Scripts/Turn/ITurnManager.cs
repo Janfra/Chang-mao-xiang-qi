@@ -7,4 +7,6 @@ public interface ITurnManager
     event UnityAction OnPlayerTurn;
     void RequestEndPlayerTurn();
     void RequestEndEnemyTurn();
+
+    int GetTurnNumb();
 }

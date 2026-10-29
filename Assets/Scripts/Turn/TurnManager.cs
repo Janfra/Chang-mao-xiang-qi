@@ -12,6 +12,7 @@ public class TurnManager : MonoBehaviour, ITurnManager
     [SerializeField]
     private SO_PlayerUnitRegistry _playerUnitRegistry;
     private bool _isQueuedForEndingTurn;
+    private int turnNumb = 1;
 
     [Header("Debug")]
     [SerializeField]
@@ -44,6 +45,13 @@ public class TurnManager : MonoBehaviour, ITurnManager
         };
     }
 
+
+    public int GetTurnNumb()
+    {
+        return turnNumb;
+    }
+
+
     [ContextMenu("Request End Player Turn")]
     public void RequestEndPlayerTurn()
     {
@@ -65,6 +73,7 @@ public class TurnManager : MonoBehaviour, ITurnManager
     [ContextMenu("Request End Enemy Turn")]
     public void RequestEndEnemyTurn()
     {
+        turnNumb++;
         _turnState.TryEndEnemyTurn();
     }
 
@@ -124,6 +133,7 @@ public class TurnHandler
     {
         if (CurrentTurnState != TurnState.Enemy)
         {
+            
             Debug.LogWarning("Attempted to end enemy turn while it is not the enemy's turn.");
             return false;
         }
