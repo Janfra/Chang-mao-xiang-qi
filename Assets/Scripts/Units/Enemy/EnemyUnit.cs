@@ -12,6 +12,7 @@ public class EnemyUnit : Unit
     [SerializeField] private AnimationClip _deathClip;
 
     private GridMovement _gridMovement;
+    private Vector2 _position => transform.position;
 
     private void OnDestroy()
     {
@@ -73,15 +74,47 @@ public class EnemyUnit : Unit
 
     public void Taketurn()
     {
-        if (transform.position.y == 7 || !TryAttack())
+        if (transform.position.y == 7) // Just spawned
         {
-            _gridMovement.OnMoveCompleted += ClearAndEndTurn;
-            _gridMovement.MoveTo(GetBestMove());
+            var bestMove = GetBestMove();
+            if (bestMove == _position) // Couldnt find a place
+            {
+                bestMove = GetClosestValidPosition();
+            }
+            MoveTo(bestMove);
+        }
+        else if (!TryAttack())
+        {
+            MoveTo(GetBestMove());
         }
         else
         {
             EndTurn();
         }
+    }
+
+    private void MoveTo(Vector2 position)
+    {
+        _gridMovement.OnMoveCompleted += ClearAndEndTurn;
+        _gridMovement.MoveTo(position);
+    }
+
+    private Vector2 GetClosestValidPosition()
+    {
+        var positions = GetPossiblePositions(GridExtensions.MaxGridthDistance);
+        Vector2 bestPosition = transform.position;
+        float bestDistance = 9999;
+        foreach (var position in positions)
+        {
+            float currentDistance = Vector2.Distance(_position, position);
+            if (currentDistance < bestDistance)
+            {
+                bestDistance = currentDistance;
+                bestPosition = position;
+            }
+        }
+
+        return bestPosition;
     }
 
     private void ClearAndEndTurn()

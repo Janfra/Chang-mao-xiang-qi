@@ -27,14 +27,19 @@ public abstract class Unit : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    protected Vector2[] GetPossiblePositions()
+    protected Vector2[] GetPossiblePositions(int steps)
     {
-        var positions = _movementType.GetMovePositionsAtSteps(transform.position, MoveSettings ? MoveSettings.MaxMoveSteps : 1);
+        var positions = _movementType.GetMovePositionsAtSteps(transform.position, steps);
         if (_gridRestrictionComponent)
         {
             positions = _gridRestrictionComponent.FilterValidPositions(positions);
         }
         return positions;
+    }
+
+    protected Vector2[] GetPossiblePositions()
+    {
+        return GetPossiblePositions(MoveSettings ? MoveSettings.MaxMoveSteps : 1);
     }
 
     protected abstract void OnDie();

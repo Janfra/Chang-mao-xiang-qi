@@ -2,6 +2,7 @@ using UnityEngine;
 
 public static class GridExtensions
 {
+    public const int MaxGridthDistance = 10;
     public const int GridLength = 10;
     public const int GridWidth = 9;
 
