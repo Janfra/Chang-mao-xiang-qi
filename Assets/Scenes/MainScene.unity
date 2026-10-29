@@ -692,6 +692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: === UI ===
       objectReference: {fileID: 0}
+    - target: {fileID: 7243384787346449575, guid: 685def7665eae704c8f8a810a65c2509, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
