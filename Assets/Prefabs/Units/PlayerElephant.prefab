@@ -108,6 +108,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8903694132015994187, guid: a734706fa950ec04db4cbabe48b137d7, type: 3}
     - target: {fileID: 135906430521037189, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+      propertyPath: 'Constraints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 643b17a6987c4544a9deab5a6e34d9bb, type: 2}
+    - target: {fileID: 135906430521037189, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
       propertyPath: 'Constraints.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: c5376f020eabbde41ae000e8969370cb, type: 2}
@@ -320,22 +324,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHorseUnit
   _movementType: {fileID: 11400000, guid: 6fb5fdf001e2e2041ba9e609f770059e, type: 2}
+  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 8aae89b9c8776d74eb0c5269536fba9c, type: 2}
   _gridRestrictionComponent: {fileID: 8016979973270759678}
   <UnitUIIcon>k__BackingField: {fileID: 524647077555133345, guid: 61263a3e40c6fa5449e328cc165f075a, type: 3}
   <HealthComponent>k__BackingField: {fileID: 2971043208940915170}
-  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 8aae89b9c8776d74eb0c5269536fba9c, type: 2}
   _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
-  <SelectableComponent>k__BackingField: {fileID: 7007678779616137299}
+  _unitRegistry: {fileID: 11400000, guid: 7c0caf447491f244e899a893737660b1, type: 2}
   <MoveActionDescription>k__BackingField: {fileID: 11400000, guid: 9e9897f55f1210243ac42b108770607c, type: 2}
+  <SelectableComponent>k__BackingField: {fileID: 7007678779616137299}
   _gridMovement: {fileID: 8539532636358975840}
   _positionSelector:
     InstancesParent: {fileID: 0}
     _defaultToken: {fileID: 11400000, guid: 91575e6ecdf985644a824adc88ad4a62, type: 2}
     _positionOptionPrefab: {fileID: 8903694132015994187, guid: a734706fa950ec04db4cbabe48b137d7, type: 3}
-  _unitRegistry: {fileID: 11400000, guid: 7c0caf447491f244e899a893737660b1, type: 2}
   _drawDebugOnlySelected: 1
   _attack:
     Source: {fileID: 0}
+    _onAttacked:
+      m_PersistentCalls:
+        m_Calls: []
     _attackMove: {fileID: 11400000, guid: 59e825078e1dae34a839429b49847bc0, type: 2}
     _attackRange: 1
     _attackRadius: 0.4
