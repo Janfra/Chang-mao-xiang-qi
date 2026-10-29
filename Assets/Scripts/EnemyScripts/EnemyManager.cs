@@ -9,12 +9,12 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private SO_CollisionConstraint SO_ColConst;
     [SerializeField] private SO_GridSettings SO_GridSet;
     [SerializeField] private EnemyUnit _PawnPrefab;
-    [SerializeField] private EnemyUnit _CannonPrefab;
+    [SerializeField] private EnemyUnit[] _SpecialPrefabs;
     private int _PawnCount;
-    private int _CannonCount;
+    private int _SpecialCount;
 
 
-    private List<EnemyUnit> _enemies = new();
+    [SerializeField] private List<EnemyUnit> _enemies = new();
     private Queue<EnemyUnit> _turnQueue = new();
 
     private void Awake()
@@ -34,6 +34,10 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
+        foreach (EnemyUnit unit in _enemies)
+        {
+            unit.OnEndIndividulTurn += TakeEachTurn;
+        }
         SO_turn.TurnManager.OnEnemyTurn += DoTurn;
     }
 
@@ -50,10 +54,10 @@ public class EnemyManager : MonoBehaviour
     private void CreateNewEnemy()
     {
         EnemyUnit enemy;
-        if (_PawnCount > 3 && _CannonCount < _PawnCount / 3)
+        if (_PawnCount > 2 && _SpecialCount < _PawnCount / 3)
         {
-            enemy = Instantiate(_CannonPrefab, new Vector3(Random.Range(-4, 5), 7, 0), Quaternion.identity);
-            _CannonCount++;
+            enemy = Instantiate(_SpecialPrefabs[Random.Range(0,_SpecialPrefabs.Length)], new Vector3(Random.Range(-4, 5), 7, 0), Quaternion.identity);
+            _SpecialCount++;
         }
         else
         {
@@ -66,6 +70,7 @@ public class EnemyManager : MonoBehaviour
 
     public void removeEnemy(EnemyUnit toRemove)
     {
+        if (!(toRemove is EnemyUnit)) { _SpecialCount--; } else { _PawnCount--; }
         toRemove.OnEndIndividulTurn -= TakeEachTurn;
         _enemies.Remove(toRemove);
     }
@@ -75,6 +80,8 @@ public class EnemyManager : MonoBehaviour
     {
 
         
+
+
 
 
 
