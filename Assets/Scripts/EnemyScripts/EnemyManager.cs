@@ -8,7 +8,11 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private SO_TurnNotifier SO_turn;
     [SerializeField] private SO_CollisionConstraint SO_ColConst;
     [SerializeField] private SO_GridSettings SO_GridSet;
-    [SerializeField] private EnemyUnit _enemyPrefab;
+    [SerializeField] private EnemyUnit _PawnPrefab;
+    [SerializeField] private EnemyUnit _CannonPrefab;
+    private int _PawnCount;
+    private int _CannonCount;
+
 
     private List<EnemyUnit> _enemies = new();
     private Queue<EnemyUnit> _turnQueue = new();
@@ -45,7 +49,17 @@ public class EnemyManager : MonoBehaviour
 
     private void CreateNewEnemy()
     {
-        var enemy = Instantiate(_enemyPrefab, new Vector3(Random.Range(-4, 5), 7, 0), Quaternion.identity);
+        EnemyUnit enemy;
+        if (_PawnCount > 3 && _CannonCount < _PawnCount / 3)
+        {
+            enemy = Instantiate(_CannonPrefab, new Vector3(Random.Range(-4, 5), 7, 0), Quaternion.identity);
+            _CannonCount++;
+        }
+        else
+        {
+            enemy = Instantiate(_PawnPrefab, new Vector3(Random.Range(-4, 5), 7, 0), Quaternion.identity);
+            _PawnCount++;
+        }
         enemy.OnEndIndividulTurn += TakeEachTurn;
         _enemies.Add(enemy);
     }

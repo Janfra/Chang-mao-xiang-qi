@@ -18,7 +18,7 @@ public class EnemyUnit : Unit
         _attack.OnDestroy();
     }
 
-    public Vector2 GetBestMove()
+    protected virtual Vector2 GetBestMove()
     {
         var positions = GetPossiblePositions();
         KingPos = KingSingleton.Instance.GetKingPos();
@@ -73,7 +73,7 @@ public class EnemyUnit : Unit
 
     public void Taketurn()
     {
-        if (!TryAttack())
+        if (transform.position.y == 7 || !TryAttack())
         {
             _gridMovement.OnMoveCompleted += ClearAndEndTurn;
             _gridMovement.MoveTo(GetBestMove());
