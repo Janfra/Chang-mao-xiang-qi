@@ -79,13 +79,16 @@ public class EnemyManager : MonoBehaviour
     public void DoTurn()
     {
 
+
+
         
 
 
-
-
-
-        CreateNewEnemy();
+        for (int i = 0; i <  ( SO_turn.TurnManager.GetTurnNumb() /5 + 1); i++)
+        {
+            CreateNewEnemy();
+        }
+        
         CreateTurnQueue();
         TakeEachTurn();
 

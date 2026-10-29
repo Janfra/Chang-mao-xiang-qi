@@ -46,7 +46,7 @@ public class MenuManager : MonoBehaviour
 
     public void Reset()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("FirstScene");
     }
 
 }
