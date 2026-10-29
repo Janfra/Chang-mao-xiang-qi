@@ -254,22 +254,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHorseUnit
   _movementType: {fileID: 11400000, guid: 5fe749da67709fe468358accd77bd545, type: 2}
+  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
   _gridRestrictionComponent: {fileID: 8016979973270759678}
   <UnitUIIcon>k__BackingField: {fileID: -8762734513084780091, guid: 7b2a4bc34a09ade4d8f2f93f259756a8, type: 3}
   <HealthComponent>k__BackingField: {fileID: 2971043208940915170}
-  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
   _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
-  <SelectableComponent>k__BackingField: {fileID: 7007678779616137299}
+  _unitRegistry: {fileID: 11400000, guid: 7c0caf447491f244e899a893737660b1, type: 2}
   <MoveActionDescription>k__BackingField: {fileID: 11400000, guid: 9e9897f55f1210243ac42b108770607c, type: 2}
+  <SelectableComponent>k__BackingField: {fileID: 7007678779616137299}
   _gridMovement: {fileID: 8539532636358975840}
   _positionSelector:
     InstancesParent: {fileID: 0}
     _defaultToken: {fileID: 11400000, guid: 91575e6ecdf985644a824adc88ad4a62, type: 2}
     _positionOptionPrefab: {fileID: 8903694132015994187, guid: a734706fa950ec04db4cbabe48b137d7, type: 3}
-  _unitRegistry: {fileID: 11400000, guid: 7c0caf447491f244e899a893737660b1, type: 2}
   _drawDebugOnlySelected: 1
   _attack:
     Source: {fileID: 0}
+    _onAttacked:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7067592322556277413}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: SetTrigger
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Attacking
+            m_BoolArgument: 0
+          m_CallState: 2
     _attackMove: {fileID: 11400000, guid: 6fb5fdf001e2e2041ba9e609f770059e, type: 2}
     _attackRange: 3
     _attackRadius: 0.4
