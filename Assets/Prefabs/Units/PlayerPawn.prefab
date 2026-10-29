@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7824252061650062651}
   - component: {fileID: 1207086269217764511}
+  - component: {fileID: 1442002373074500007}
   m_Layer: 0
-  m_Name: sketch1793276000005_0
+  m_Name: Avatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,6 +92,28 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &1442002373074500007
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8241511075928703142}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 11f0c6981feef1b40a78150c55f72d99, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &7971616406579755387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,6 +210,14 @@ PrefabInstance:
       propertyPath: _onReset.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5159888137804984473, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+      propertyPath: _onDied.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1442002373074500007}
+    - target: {fileID: 5159888137804984473, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+      propertyPath: _onReset.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1442002373074500007}
     - target: {fileID: 5159888137804984473, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
       propertyPath: _onDied.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -350,7 +381,19 @@ MonoBehaviour:
     Source: {fileID: 0}
     _onAttacked:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1442002373074500007}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: SetTrigger
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Attacking
+            m_BoolArgument: 0
+          m_CallState: 2
     _attackMove: {fileID: 11400000, guid: 6fb5fdf001e2e2041ba9e609f770059e, type: 2}
     _attackRange: 1
     _attackRadius: 0.4

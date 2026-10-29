@@ -161,13 +161,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   _movementType: {fileID: 11400000, guid: 6fb5fdf001e2e2041ba9e609f770059e, type: 2}
+  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 8aae89b9c8776d74eb0c5269536fba9c, type: 2}
   _gridRestrictionComponent: {fileID: 135906430521037189}
   <UnitUIIcon>k__BackingField: {fileID: 0}
   <HealthComponent>k__BackingField: {fileID: 5159888137804984473}
-  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 8aae89b9c8776d74eb0c5269536fba9c, type: 2}
   KingPos: {x: 0, y: -2}
   _attack:
     Source: {fileID: 0}
+    _onAttacked:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4978618753542327307}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: SetTrigger
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Attacking
+            m_BoolArgument: 0
+          m_CallState: 2
     _attackMove: {fileID: 11400000, guid: 6fb5fdf001e2e2041ba9e609f770059e, type: 2}
     _attackRange: 1
     _attackRadius: 0.4
