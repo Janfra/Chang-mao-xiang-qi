@@ -1536,7 +1536,7 @@ PrefabInstance:
     - target: {fileID: 3579119380329038354, guid: ec94f5259661a834da955323275fbe0a, type: 3}
       propertyPath: '_SpecialPrefabs.Array.data[0]'
       value: 
-      objectReference: {fileID: -7123711609832147273, guid: b0ce434e496558b4692bfe3c258b7221, type: 3}
+      objectReference: {fileID: 1951859536675084689, guid: b0ce434e496558b4692bfe3c258b7221, type: 3}
     - target: {fileID: 3579119380329038354, guid: ec94f5259661a834da955323275fbe0a, type: 3}
       propertyPath: '_SpecialPrefabs.Array.data[1]'
       value: 
@@ -1656,6 +1656,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3665569261356080977, guid: 685def7665eae704c8f8a810a65c2509, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685534996278725471, guid: 685def7665eae704c8f8a810a65c2509, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590872592097621574, guid: 685def7665eae704c8f8a810a65c2509, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6911189897641678364, guid: 685def7665eae704c8f8a810a65c2509, type: 3}

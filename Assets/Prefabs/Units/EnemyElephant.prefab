@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1739055016608831515}
   - component: {fileID: 135906430521037189}
   - component: {fileID: 8374283077929247776}
-  - component: {fileID: -7123711609832147273}
+  - component: {fileID: 1951859536675084689}
   m_Layer: 0
   m_Name: EnemyElephant
   m_TagString: Untagged
@@ -148,7 +148,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.4
---- !u!114 &-7123711609832147273
+--- !u!114 &1951859536675084689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,9 +157,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 659425209203158568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a960eaf6e6dc5347b249f598e9cffe5, type: 3}
+  m_Script: {fileID: 11500000, guid: 90cd665cd220a6d498cd49ae82681d55, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
+  m_EditorClassIdentifier: Assembly-CSharp::RndMoveEnemyUnit
   _movementType: {fileID: 11400000, guid: 6fb5fdf001e2e2041ba9e609f770059e, type: 2}
   <MoveSettings>k__BackingField: {fileID: 11400000, guid: 8aae89b9c8776d74eb0c5269536fba9c, type: 2}
   _gridRestrictionComponent: {fileID: 135906430521037189}
@@ -170,20 +170,8 @@ MonoBehaviour:
     Source: {fileID: 0}
     _onAttacked:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4978618753542327307}
-          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Attacking
-            m_BoolArgument: 0
-          m_CallState: 2
-    _attackMove: {fileID: 11400000, guid: 6fb5fdf001e2e2041ba9e609f770059e, type: 2}
+        m_Calls: []
+    _attackMove: {fileID: 11400000, guid: 59e825078e1dae34a839429b49847bc0, type: 2}
     _attackRange: 1
     _attackRadius: 0.4
     _attackMask:
