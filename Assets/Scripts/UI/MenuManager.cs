@@ -1,15 +1,19 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] private SO_TurnNotifier SO_turn;
     [SerializeField] private SO_menu _menu;
     [SerializeField] private GameObject Tutorial;
     [SerializeField] private GameObject Deathscreen;
     [SerializeField] private GameObject endturn;
+    [SerializeField] private TextMeshProUGUI turnCounterText;
     private void Start()
     {
+        SO_turn.TurnManager.OnPlayerTurn += UpdateTurnCounter;
         if (_menu.Tutorialised == false)
         {
             _menu.Tutorialised = true;
@@ -37,6 +41,12 @@ public class MenuManager : MonoBehaviour
             king.OnKingDied -= DisplayDeath;
         }
     }
+
+    public void UpdateTurnCounter()
+    {
+        turnCounterText.text = "" + SO_turn.TurnManager.GetTurnNumb();
+    }
+
 
     public void DisplayDeath()
     {
