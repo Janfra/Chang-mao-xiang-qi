@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SO_BoxConstraint
   AABB:
     Min:
-      x: 0
-      y: 0
+      x: -4
+      y: 6
       z: 0
     Max:
-      x: 0
-      y: 0
+      x: 4
+      y: 6
       z: 0
