@@ -9,7 +9,6 @@ public class SO_CardinalMovement : SO_MovementType
 
     public override Vector2[] GetMovePositionsAtSteps(Vector2 origin, int steps)
     {
-        // For now only ever do 1 step max for simplicity
         _positions.Clear();
         steps = Mathf.Clamp(steps, 1, GridExtensions.GridLength); // Clamp it to be within max grid size
         const int DirectionCount = (int)Direction.UpLeft; // Cardinal directions go up to UpLeft, so 4
