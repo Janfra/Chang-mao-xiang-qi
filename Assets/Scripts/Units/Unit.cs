@@ -2,17 +2,17 @@ using UnityEngine;
 
 public abstract class Unit : MonoBehaviour
 {
+    [Header("Configuration")]
     [SerializeField] protected SO_MovementType _movementType;
+    [field: SerializeField]
+    public SO_MovementSettings MoveSettings { get; private set; }
     [SerializeField] protected GridRestrictionComponent _gridRestrictionComponent;
-    
     [field: SerializeField] 
     public Sprite UnitUIIcon { get; private set; }
 
+    [field: Header("Required Components")]
     [field: SerializeField]
     public HealthComponent HealthComponent { get; private set; }
-    
-    [field: SerializeField]
-    public SO_MovementSettings MoveSettings { get; private set; }
 
     public bool IsDead => HealthComponent.Health.IsDead;
 

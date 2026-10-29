@@ -668,6 +668,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3579119380329038354, guid: ec94f5259661a834da955323275fbe0a, type: 3}
+      propertyPath: _PawnPrefab
+      value: 
+      objectReference: {fileID: -7123711609832147273, guid: 2fe06dbe7888395498fa51981c9c30b3, type: 3}
+    - target: {fileID: 3579119380329038354, guid: ec94f5259661a834da955323275fbe0a, type: 3}
+      propertyPath: _CannonPrefab
+      value: 
+      objectReference: {fileID: -7123711609832147273, guid: 9ec861ee151a95b46bd47505446babd0, type: 3}
     - target: {fileID: 8082823260035962171, guid: ec94f5259661a834da955323275fbe0a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

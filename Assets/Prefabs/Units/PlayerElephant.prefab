@@ -323,7 +323,7 @@ MonoBehaviour:
   _gridRestrictionComponent: {fileID: 8016979973270759678}
   <UnitUIIcon>k__BackingField: {fileID: 21300000, guid: 61263a3e40c6fa5449e328cc165f075a, type: 3}
   <HealthComponent>k__BackingField: {fileID: 2971043208940915170}
-  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
+  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 8aae89b9c8776d74eb0c5269536fba9c, type: 2}
   _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
   <SelectableComponent>k__BackingField: {fileID: 7007678779616137299}
   <MoveActionDescription>k__BackingField: {fileID: 11400000, guid: 9e9897f55f1210243ac42b108770607c, type: 2}

@@ -1,14 +1,15 @@
-using System;
 using System.Linq;
 using UnityEngine;
 
 public class PlayerHorseUnit : PlayerUnit
 {
+    [Header("Configuration")]
     [SerializeField]
     private Attack _attack;
-
     [SerializeField]
     private SO_Token _attackToken;
+
+    [Header("Shared Information")]
     [SerializeField]
     private SO_PlayerActionDescription _attackActionDescription;
 

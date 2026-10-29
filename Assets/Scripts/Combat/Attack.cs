@@ -11,6 +11,8 @@ public class Attack
 
     [HideInInspector]
     public Transform Source;
+    [SerializeField]
+    private UnityEvent _onAttacked;
 
     [SerializeField]
     private SO_MovementType _attackMove;
@@ -43,6 +45,7 @@ public class Attack
     public void DealDamageTo(HealthComponent healthComponent)
     {
         healthComponent.Health.TakeDamage(_damage);
+        _onAttacked?.Invoke();
     }
 
     public Vector2[] GetAttackDirections()

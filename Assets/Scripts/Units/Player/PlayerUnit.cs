@@ -11,24 +11,24 @@ public class PlayerUnit : Unit
     public event UnityAction OnReadyForTurnEnd;
     public event UnityAction<PlayerUnit> OnAvailableActionUpdated;
 
+    [Header("Turn")]
     [SerializeField]
     private SO_TurnNotifier _turnNotifier;
 
-    [field: SerializeField]
-    public SelectableComponent SelectableComponent { get; private set; }
+    [Header("Shared Information")]
+    [SerializeField]
+    private SO_PlayerUnitRegistry _unitRegistry;
 
     [field: SerializeField]
     public SO_PlayerActionDescription MoveActionDescription { get; private set; }
 
+    [field: Header("Required Components")]
+    [field: SerializeField]
+    public SelectableComponent SelectableComponent { get; private set; }
     [SerializeField]
     private GridMovement _gridMovement;
-
     [SerializeField]
     private PositionSelector _positionSelector;
-
-    [SerializeField]
-    private SO_PlayerUnitRegistry _unitRegistry;
-
 
     [Header("Debug")]
     [SerializeField]
