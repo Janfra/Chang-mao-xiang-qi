@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SO_MovementSettings
   <GridSettings>k__BackingField: {fileID: 11400000, guid: 57c189f388d915141b953076360cbde6, type: 2}
   <MoveSpeed>k__BackingField: 5
-  <MaxMoveSteps>k__BackingField: 1
+  <MaxMoveSteps>k__BackingField: 10
