@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -10,6 +9,8 @@ public class KingSingleton : MonoBehaviour
 
     [SerializeField] private SO_TurnNotifier SO_turn;
     public static KingSingleton Instance { get; private set; }
+    public bool IsKingDead => _kingUnit ? _kingUnit.IsDead : true; // No king == dead king ofc
+
     private PlayerUnit _kingUnit;
 
     private void Awake()
@@ -44,13 +45,10 @@ public class KingSingleton : MonoBehaviour
 
     public void Endturn(InputAction.CallbackContext call)
     {
-
-        if (call.started)
+        if (call.started && !_kingUnit.IsDead)
         {
-
             SO_turn.TurnManager.RequestEndPlayerTurn();
         }
-        
     }
 
     private void OnKingDeath()

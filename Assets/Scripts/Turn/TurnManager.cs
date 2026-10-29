@@ -47,7 +47,7 @@ public class TurnManager : MonoBehaviour, ITurnManager
     [ContextMenu("Request End Player Turn")]
     public void RequestEndPlayerTurn()
     {
-        if (_isQueuedForEndingTurn)
+        if (_isQueuedForEndingTurn || KingSingleton.Instance && KingSingleton.Instance.IsKingDead)
         {
             return;
         }
