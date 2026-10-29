@@ -10,7 +10,6 @@ public class SO_SelectedNotifier : ScriptableObject
     {
         if (Selector != null)
         {
-            Debug.LogWarning("Selector is already assigned. Ignoring reassignment.");
             return;
         }
 

@@ -226,6 +226,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 659425209203158568, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 5620572156359809362}
+    - targetCorrespondingSourceObject: {fileID: 659425209203158568, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 7215908376708756215}
     - targetCorrespondingSourceObject: {fileID: 659425209203158568, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
       insertIndex: -1
@@ -233,9 +236,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 659425209203158568, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8629344936793130084}
-    - targetCorrespondingSourceObject: {fileID: 659425209203158568, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5620572156359809362}
   m_SourcePrefab: {fileID: 100100000, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
 --- !u!114 &419855032954545264 stripped
 MonoBehaviour:
@@ -253,6 +253,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 659425209203158568, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
   m_PrefabInstance: {fileID: 2157719823386082411}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5620572156359809362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501806459766379075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f83a88e85d845d4bbd708da9fc0c409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerUnit
+  _movementType: {fileID: 11400000, guid: 59e825078e1dae34a839429b49847bc0, type: 2}
+  _gridRestrictionComponent: {fileID: 2022983279151099374}
+  <UnitUIIcon>k__BackingField: {fileID: -2469705209961498790, guid: c18f2b19a4fe6e246b0154e31127409b, type: 3}
+  <HealthComponent>k__BackingField: {fileID: 6515116924502854898}
+  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
+  _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
+  <SelectableComponent>k__BackingField: {fileID: 8629344936793130084}
+  <MoveActionDescription>k__BackingField: {fileID: 11400000, guid: 9e9897f55f1210243ac42b108770607c, type: 2}
+  _gridMovement: {fileID: 419855032954545264}
+  _positionSelector:
+    InstancesParent: {fileID: 0}
+    _defaultToken: {fileID: 11400000, guid: 91575e6ecdf985644a824adc88ad4a62, type: 2}
+    _positionOptionPrefab: {fileID: 8903694132015994187, guid: a734706fa950ec04db4cbabe48b137d7, type: 3}
+  _unitRegistry: {fileID: 11400000, guid: 7c0caf447491f244e899a893737660b1, type: 2}
+  _drawDebugOnlySelected: 1
 --- !u!114 &7215908376708756215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,33 +398,6 @@ MonoBehaviour:
   _onDeselected:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5620572156359809362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501806459766379075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f83a88e85d845d4bbd708da9fc0c409, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerUnit
-  _movementType: {fileID: 11400000, guid: 59e825078e1dae34a839429b49847bc0, type: 2}
-  _gridRestrictionComponent: {fileID: 2022983279151099374}
-  <UnitUIIcon>k__BackingField: {fileID: -2469705209961498790, guid: c18f2b19a4fe6e246b0154e31127409b, type: 3}
-  <HealthComponent>k__BackingField: {fileID: 6515116924502854898}
-  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
-  _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
-  <SelectableComponent>k__BackingField: {fileID: 8629344936793130084}
-  <MoveActionDescription>k__BackingField: {fileID: 11400000, guid: 9e9897f55f1210243ac42b108770607c, type: 2}
-  _gridMovement: {fileID: 419855032954545264}
-  _positionSelector:
-    InstancesParent: {fileID: 0}
-    _defaultToken: {fileID: 11400000, guid: 91575e6ecdf985644a824adc88ad4a62, type: 2}
-    _positionOptionPrefab: {fileID: 8903694132015994187, guid: a734706fa950ec04db4cbabe48b137d7, type: 3}
-  _unitRegistry: {fileID: 11400000, guid: 7c0caf447491f244e899a893737660b1, type: 2}
-  _drawDebugOnlySelected: 1
 --- !u!114 &2022983279151099374 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 135906430521037189, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}

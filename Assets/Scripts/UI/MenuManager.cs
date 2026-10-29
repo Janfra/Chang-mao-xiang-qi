@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +21,21 @@ public class MenuManager : MonoBehaviour
             Tutorial.SetActive(false);
             Deathscreen.SetActive(false);
         }
+
+        var king = KingSingleton.Instance;
+        if (king)
+        {
+            king.OnKingDied += DisplayDeath;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        var king = KingSingleton.Instance;
+        if (king)
+        {
+            king.OnKingDied -= DisplayDeath;
+        }
     }
 
     public void DisplayDeath()
@@ -27,7 +43,6 @@ public class MenuManager : MonoBehaviour
         endturn.SetActive(false);
         Deathscreen.SetActive(true);
     }
-
 
     public void Reset()
     {
