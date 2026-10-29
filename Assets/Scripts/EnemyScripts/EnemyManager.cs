@@ -84,7 +84,7 @@ public class EnemyManager : MonoBehaviour
         
 
 
-        for (int i = 0; i <  ( SO_turn.TurnManager.GetTurnNumb() /5 + 1); i++)
+        for (int i = 0; i <  ( SO_turn.TurnManager.GetTurnNumb() /7 + 1); i++)
         {
             CreateNewEnemy();
         }
