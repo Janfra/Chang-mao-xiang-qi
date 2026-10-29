@@ -54,6 +54,11 @@ public class PlayerSelectorComponent : MonoBehaviour, ISelector
 
     public void TrySelect(SelectableComponent selectable)
     {
+        if (KingSingleton.Instance && KingSingleton.Instance.IsKingDead)
+        {
+            return;
+        }
+
         if (selectable != null)
         {
             if (selectable.CanBeFocused)
