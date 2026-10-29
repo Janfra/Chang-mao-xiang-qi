@@ -108,9 +108,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8903694132015994187, guid: a734706fa950ec04db4cbabe48b137d7, type: 3}
     - target: {fileID: 135906430521037189, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+      propertyPath: Constraints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 135906430521037189, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
       propertyPath: 'Constraints.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: 643b17a6987c4544a9deab5a6e34d9bb, type: 2}
+    - target: {fileID: 135906430521037189, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+      propertyPath: 'Constraints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d8b19baaf7328f649b7e00994ffa40f4, type: 2}
     - target: {fileID: 659425209203158568, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
       propertyPath: m_Name
       value: PlayerPawn
@@ -270,6 +278,10 @@ PrefabInstance:
     - target: {fileID: 8549617214234048847, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198422712168449802, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
