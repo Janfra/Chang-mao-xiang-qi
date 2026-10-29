@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sketch1793034862732_0
+      name: EndTurnButton
       rect:
         serializedVersion: 2
         x: 2159
@@ -121,7 +121,7 @@ TextureImporter:
         width: 274
         height: 272
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sketch1793034862732_0: 718292544524800583
+      EndTurnButton: 718292544524800583
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
