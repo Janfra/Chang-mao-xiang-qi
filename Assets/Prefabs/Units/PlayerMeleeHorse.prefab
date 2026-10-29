@@ -195,6 +195,14 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5159888137804984473, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+      propertyPath: _onDied.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4838483985196127474}
+    - target: {fileID: 5159888137804984473, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+      propertyPath: _onReset.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4838483985196127474}
+    - target: {fileID: 5159888137804984473, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
       propertyPath: _onDied.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
