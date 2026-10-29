@@ -339,7 +339,7 @@ MonoBehaviour:
     _onAttacked:
       m_PersistentCalls:
         m_Calls: []
-    _attackMove: {fileID: 11400000, guid: 59e825078e1dae34a839429b49847bc0, type: 2}
+    _attackMove: {fileID: 11400000, guid: 6fb5fdf001e2e2041ba9e609f770059e, type: 2}
     _attackRange: 1
     _attackRadius: 0.4
     _attackMask:
