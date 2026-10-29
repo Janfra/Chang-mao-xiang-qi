@@ -165,7 +165,7 @@ MonoBehaviour:
   _gridRestrictionComponent: {fileID: 135906430521037189}
   <UnitUIIcon>k__BackingField: {fileID: 0}
   <HealthComponent>k__BackingField: {fileID: 5159888137804984473}
-  KingPos: {x: 0, y: 0}
+  KingPos: {x: 0, y: -2}
   _attack:
     Source: {fileID: 0}
     _onAttacked:

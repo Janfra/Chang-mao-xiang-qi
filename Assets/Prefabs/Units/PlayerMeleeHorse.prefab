@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1597531994173299184}
   - component: {fileID: 3751258935306281544}
+  - component: {fileID: 4838483985196127474}
   m_Layer: 0
-  m_Name: sketch1793276653202_0
+  m_Name: Avatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,6 +92,28 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &4838483985196127474
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7873965233741802139}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 11f0c6981feef1b40a78150c55f72d99, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &7971616406579755387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -171,6 +194,14 @@ PrefabInstance:
       propertyPath: _onReset.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5159888137804984473, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+      propertyPath: _onDied.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4838483985196127474}
+    - target: {fileID: 5159888137804984473, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
+      propertyPath: _onReset.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4838483985196127474}
     - target: {fileID: 5159888137804984473, guid: f184f273b7d6e484fb12aa2c1384aab4, type: 3}
       propertyPath: _onDied.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -312,22 +343,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHorseUnit
   _movementType: {fileID: 11400000, guid: 5fe749da67709fe468358accd77bd545, type: 2}
+  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
   _gridRestrictionComponent: {fileID: 8016979973270759678}
   <UnitUIIcon>k__BackingField: {fileID: 3429723678957345706, guid: 43a39299632a6ef4383094a8e0221a99, type: 3}
   <HealthComponent>k__BackingField: {fileID: 2971043208940915170}
-  <MoveSettings>k__BackingField: {fileID: 11400000, guid: 1525d68de84cd9d41850664042df000d, type: 2}
   _turnNotifier: {fileID: 11400000, guid: 1eac92902bcede1478a748381e1be835, type: 2}
-  <SelectableComponent>k__BackingField: {fileID: 7007678779616137299}
+  _unitRegistry: {fileID: 11400000, guid: 7c0caf447491f244e899a893737660b1, type: 2}
   <MoveActionDescription>k__BackingField: {fileID: 11400000, guid: 9e9897f55f1210243ac42b108770607c, type: 2}
+  <SelectableComponent>k__BackingField: {fileID: 7007678779616137299}
   _gridMovement: {fileID: 8539532636358975840}
   _positionSelector:
     InstancesParent: {fileID: 0}
     _defaultToken: {fileID: 11400000, guid: 91575e6ecdf985644a824adc88ad4a62, type: 2}
     _positionOptionPrefab: {fileID: 8903694132015994187, guid: a734706fa950ec04db4cbabe48b137d7, type: 3}
-  _unitRegistry: {fileID: 11400000, guid: 7c0caf447491f244e899a893737660b1, type: 2}
   _drawDebugOnlySelected: 1
   _attack:
     Source: {fileID: 0}
+    _onAttacked:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4838483985196127474}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: SetTrigger
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Attacking
+            m_BoolArgument: 0
+          m_CallState: 2
     _attackMove: {fileID: 11400000, guid: 5fe749da67709fe468358accd77bd545, type: 2}
     _attackRange: 1
     _attackRadius: 0.4

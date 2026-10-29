@@ -740,7 +740,7 @@ PrefabInstance:
     - target: {fileID: 3579119380329038354, guid: ec94f5259661a834da955323275fbe0a, type: 3}
       propertyPath: '_SpecialPrefabs.Array.data[0]'
       value: 
-      objectReference: {fileID: 1951859536675084689, guid: b0ce434e496558b4692bfe3c258b7221, type: 3}
+      objectReference: {fileID: -7123711609832147273, guid: b0ce434e496558b4692bfe3c258b7221, type: 3}
     - target: {fileID: 8082823260035962171, guid: ec94f5259661a834da955323275fbe0a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
