@@ -103,7 +103,7 @@ public class EnemyUnit : Unit
     {
         var positions = GetPossiblePositions(GridExtensions.MaxGridthDistance);
         Vector2 bestPosition = transform.position;
-        float bestDistance = 9999;
+        float bestDistance = Mathf.Infinity;
         foreach (var position in positions)
         {
             float currentDistance = Vector2.Distance(_position, position);
